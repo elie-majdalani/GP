@@ -124,4 +124,25 @@ app.post("/gmail", (req, res) => {
       })
   })
 
-  
+  // register new gmail user
+  app.post("/gmailRegister", async (req, res) => {
+    try {
+      const { displayName, email, photoUrl } = req.body;
+      const user = await User.create({
+        displayName,
+        email: email.toLowerCase(),
+        photoUrl,
+      });
+      const token = jwt.sign(
+        { user_id: user._id, email },
+        process.env.TOKEN_KEY,
+        {
+          expiresIn: "2h",
+        }
+      );
+      user.token = token;
+      res.status(200).json(user);
+    } catch (err) {
+      console.log(err);
+    }
+  })
