@@ -99,3 +99,29 @@ app.post("/register", async (req, res) => {
         console.log(err);
     }
 });
+
+// Check if gmail user is already registered
+app.post("/gmail", (req, res) => {
+    email = req.body.email;
+    User.findOne({ email: email })
+      .then(user => {
+        if (user) {
+          const token = jwt.sign(
+            { email },
+            process.env.TOKEN_KEY,
+            {
+              expiresIn: "2h",
+            }
+          );
+          user.token = token;
+          res.status(200).json(user);
+        }
+        else {
+          res.status(201).send("User does not exist");
+        }
+      }).catch(err => {
+        console.log(err);
+      })
+  })
+
+  
