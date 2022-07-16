@@ -163,3 +163,11 @@ app.post("/gmail", (req, res) => {
       res.status(200).send(record);
     })
   })
+
+  // get all expense records
+  app.post("/getRecords", auth, (req, res) => {
+    Record.find({ email: req.user.email }, (err, records) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).send(records);
+    })
+  })
