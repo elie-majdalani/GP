@@ -1,4 +1,4 @@
-const login = async (email, password) => {
+export const login = async (email, password) => {
     try {
         const res = await fetch("http://127.0.0.1:4001/login", {
             method: 'POST',

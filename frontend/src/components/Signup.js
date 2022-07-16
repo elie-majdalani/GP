@@ -1,4 +1,4 @@
-const register = async (displayName, email, password, confirmPassword) => {
+export const register = async (displayName, email, password, confirmPassword) => {
     if (password !== confirmPassword) {
         alert('Passwords do not match');
         return;
@@ -16,8 +16,7 @@ const register = async (displayName, email, password, confirmPassword) => {
                 password,
             })
         });
-        const data = await res.json();
-        if (data.status === 'success') {
+        if (res.status === 200) {
             window.location.href = '/login';
         }
     }
