@@ -146,3 +146,20 @@ app.post("/gmail", (req, res) => {
       console.log(err);
     }
   })
+
+  // add new expense record
+  app.post("/addRecord", auth, (req, res) => {
+    const { email, name, category, discription, amount, type } = req.body;
+    const record = new Record({
+      email,
+      name,
+      category,
+      discription,
+      amount,
+      type,
+    });
+    record.save((err, record) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).send(record);
+    })
+  })
