@@ -7,9 +7,9 @@ export const sidenav = () => {
                     <hr class="sideboard-divider"></hr>
                 </div>
             </div>
-
+            
             <div id="sideboard-title-section">
-                <span id="sideboard-title">History</span>
+                <span id="sideboard-title">Coins</span>
                 <hr class="sideboard-divider"></hr>
             </div>
 
