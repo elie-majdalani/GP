@@ -4,9 +4,10 @@ export const sidenav = () => {
             <div id="sidenav-header">
                 <div id="sidenav-header-logo">
                     <img src="#" alt="Logo" />
-                    <hr class="rounded"></hr>
+                    <hr class="sidenav-divider"></hr>
                 </div>
             </div>
+            
             <div id="sidenav-section-1">
                 <span id="sidenav-title-1" class="sidenav-title">Finances Dashboard</span>
                 <a href="/Expences-Revenue">Expences & Revenue</a>
@@ -20,7 +21,7 @@ export const sidenav = () => {
             </div>
 
             <div id="sidenav-footer">
-                <hr class="rounded"></hr>
+                <hr class="sidenav-divider"></hr>
                 <img src="#" alt="Support" />
                 <span>Support</span>
             </div>
