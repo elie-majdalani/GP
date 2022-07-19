@@ -8,7 +8,7 @@ import { Login } from './pages/Login';
 // import firebase from './components/firebase';
 // import { checkGmail, saveGmail } from './components/gmail';
 import { Home } from './pages/Home';
-import { Table } from './pages/Table';
+import { Records } from './pages/Records';
 
 function App() {
   const [user, setUser] = useState(false);
@@ -30,7 +30,7 @@ function App() {
           <div className="App">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/table" element={<Table />} />
+              <Route path="/records" element={<Records />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
             </Routes>

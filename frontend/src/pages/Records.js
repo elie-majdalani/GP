@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import { userContext } from '../components/userContext';
 import {Sidenav} from "../components/Sidenav";
 
-export const Table = () => {
+export const Records = () => {
     const { user } = useContext(userContext);
+    
 
     return (
         <>
