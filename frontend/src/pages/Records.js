@@ -19,6 +19,9 @@ export const Records = () => {
     const [monthsRevenue,setMonthsRevenue] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     const [monthsExpense,setMonthsExpense] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     useEffect(() => {
+        if(!user){
+            window.location.href = '/login'
+        }
         async function getData() {
             const result = await fetch("http://127.0.0.1:4001/getRecords", {
                 method: 'POST',
@@ -71,10 +74,10 @@ export const Records = () => {
     return (
         <div>
         <Sidenav /> 
-        {charts} ?
+        {charts ?
         <Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth}/>
          : 
-         <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />
+         <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />}
         </div>
     )
 }
