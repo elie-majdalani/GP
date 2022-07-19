@@ -1,15 +1,28 @@
 import './App.css';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { userContext } from './components/userContext';
 import { SignUp } from './pages/Signup';
 import { Login } from './pages/Login';
+// import firebase from './components/firebase';
+// import { checkGmail, saveGmail } from './components/gmail';
 import { Home } from './pages/Home';
 import { Table } from './pages/Table';
 
 function App() {
   const [user, setUser] = useState(false);
+
+  // useEffect(() => {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     setUser(user);
+  //     if (user) {
+  //       const valid = checkGmail();
+  //       if (valid) {
+  //         saveGmail();
+  //     }
+  //   }
+  // })}, [])
 
   return (
     <userContext.Provider value={{ user, setUser }}>
