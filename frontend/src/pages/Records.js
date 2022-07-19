@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { userContext } from '../components/userContext';
 import {Sidenav} from "../components/Sidenav";
+import { Table } from "../components/Table";
 
 export const Records = () => {
     const { user } = useContext(userContext);
@@ -67,12 +68,12 @@ export const Records = () => {
         getData();
     }, [add, year, month]);
     return (
-        <>
+        <div>
         <Sidenav /> 
         {charts} ?
 
          : 
-         
-        </>
+         <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />
+        </div>
     )
 }

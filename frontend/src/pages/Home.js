@@ -4,7 +4,7 @@ export const Home = () => {
     const {user} = useContext(userContext);
     useEffect(() => {
         if (user) {
-            window.location.href = '/table';
+            window.location.href = '/records';
         }
     }, [user]);
 return (

@@ -9,7 +9,7 @@ export const Login = () => {
     const [password, setPassword] = useState('');
     useEffect(() => {
         if (user) {
-            window.location.href = '/table';
+            window.location.href = '/records';
         }
     }, [user]);
     return (

@@ -10,7 +10,7 @@ export const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     useEffect(() => {
         if (user) {
-            window.location.href = '/table';
+            window.location.href = '/records';
         }
     }, [user]);
     return (
