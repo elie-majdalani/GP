@@ -1,12 +1,17 @@
 import { signInWithGoogle } from '../components/firebase';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import {login} from '../components/login';
 import { userContext } from '../components/userContext';
 
 export const Login = () => {
-    const {setUser} = useContext(userContext);
+    const {setUser,user} = useContext(userContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    useEffect(() => {
+        if (user) {
+            window.location.href = '/table';
+        }
+    }, [user]);
     return (
         <div className="login">
             <h1>Login</h1>

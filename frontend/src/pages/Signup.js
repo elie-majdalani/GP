@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { register } from '../components/signup';
+import { userContext } from '../components/userContext';
 
 export const SignUp = () => {
+    const {user} = useContext(userContext);
     const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-
+    useEffect(() => {
+        if (user) {
+            window.location.href = '/table';
+        }
+    }, [user]);
     return (
         <div className="signup">
             <h1>Register</h1>
