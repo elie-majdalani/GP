@@ -1,5 +1,5 @@
 import { signInWithGoogle } from '../components/firebase';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { login } from '../components/login';
 import { useAppContext } from '../components/userContext';
 export const Login = () => {
