@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useAppContext } from './userContext';
+import axios from "axios";
 
-const AddRecord = ({ user , setAdd}) => {
+export const AddRecord = ({setAdd}) => {
+    const appdata = useAppContext();
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
     const [discription, setDiscription] = useState('')
@@ -11,14 +14,15 @@ const AddRecord = ({ user , setAdd}) => {
     const handleSubmit = async () => {
         const body = {
             token: localStorage.getItem('token'),
-            email: user.email,
+            email: appdata.user.email,
             name,
             category,
             discription,
             amount: parseInt(amount),   
             type
         }
-        await axios.post("http://127.0.0.1:4001/addRecord", body).then(res => { res.json() ; setAdd(true)})
+        await axios.post("http://127.0.0.1:4001/addRecord", body)
+        setAdd(true)
     }
 
     return (
@@ -36,4 +40,3 @@ const AddRecord = ({ user , setAdd}) => {
         </div>
     )
 }
-export default AddRecord;
