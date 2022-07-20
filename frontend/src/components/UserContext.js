@@ -9,7 +9,7 @@ export const AppWrapper = ({
     useEffect(() => {
         if (user) return
         fetchData()
-    }, [])
+    }, [user])
     const fetchData = async () => {
         const token = localStorage.getItem('token')
         if (token) {

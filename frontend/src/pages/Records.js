@@ -69,7 +69,7 @@ export const Records = () => {
         if (appdata.user) {
             getData();
         }
-    }, [year, month, appdata]);
+    }, [year, month, appdata,chartYear,oldest]);
     return (
         <div>
             {isCharts ?
