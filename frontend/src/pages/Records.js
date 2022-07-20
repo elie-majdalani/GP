@@ -3,9 +3,11 @@ import axios from "axios";
 import { useAppContext } from '../components/userContext';
 import { Table } from "../components/Table";
 import { Charts } from "../components/Charts";
+import { AddRecord } from "../components/AddRecord";
 
 export const Records = () => {
     const appdata = useAppContext()
+    const [add, setAdd] = useState(false);
     const [isCharts, setIsCharts] = useState(false);
     const [data, setData] = useState([]);
     const [totalExpense, setTotalExpense] = useState(0);
@@ -19,20 +21,19 @@ export const Records = () => {
     const [monthsExpense, setMonthsExpense] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     useEffect(() => {
         const type = window.location.href.split('type=')[1]
-        if(type==='chart'){
+        if (type === 'chart') {
             setIsCharts(true)
-        }else{
+        } else {
             setIsCharts(false)
         }
-        
+
         async function getData() {
-            const result = await axios.post("http://127.0.0.1:4001/getRecords", {
-                body: {
-                    token: localStorage.getItem('token'),
-                    email: appdata.user.email,
-                }
-            })
-            const records = await result.json();
+            const body = {
+                token: localStorage.getItem('token'),
+                email: appdata.user.email,
+            }
+            const result = await axios.post("http://127.0.0.1:4001/getRecords", body)
+            const records = result.data
             setData(records);
             setTotalExpense(0)
             setTotalRevenue(0)
@@ -67,15 +68,19 @@ export const Records = () => {
             })
         }
         if (appdata.user) {
+            setAdd(false)
             getData();
         }
-    }, [year, month, appdata,chartYear,oldest]);
+    }, [year, month, appdata, chartYear, oldest, add]);
     return (
         <div>
             {isCharts ?
-                <Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth} />
+                (<Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth} />)
                 :
-                <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />}
+                (<div>
+                    <AddRecord setAdd={setAdd}/>
+                    <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />
+                </div>)}
         </div>
     )
 }
