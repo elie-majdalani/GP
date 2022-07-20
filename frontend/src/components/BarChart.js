@@ -29,12 +29,12 @@ const BarChart = ({months,monthsExpense,monthsRevenue}) => {
         labels,
         datasets: [
             {
-                label: 'Dataset 1',
+                label: 'Expenses',
                 data: monthsExpense,
                 backgroundColor: 'rgb(255, 99, 132)',
             },
             {
-                label: 'Dataset 2',
+                label: 'Revenue',
                 data: monthsRevenue ,
                 backgroundColor: 'rgb(75, 192, 192)',
             },
