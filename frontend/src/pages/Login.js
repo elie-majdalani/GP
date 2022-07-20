@@ -16,7 +16,10 @@ export const Login = () => {
             <h1>Login</h1>
             <input type="text" placeholder="Email" onChange={(e) => { setEmail(e.target.value) }} />
             <input type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} />
-            <button onClick={async () => { appdata.setUser(await login(email, password)) }}>Login</button>
+            <button onClick={async () => {
+                const userData = await login(email, password)
+                appdata.setUser(userData);
+            }}>Login</button>
             <span>Don't have an account? <a href="/signup">Signup</a></span>
             <button className="button" onClick={signInWithGoogle}><i className="fab fa-google"></i>Sign in with google</button>
         </div>
