@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import SupportChannel from '../components/SupportChannel';
+import { useAppContext } from '../components/userContext';
 
-
-const Support = ({ user = null, db = null }) => {
+const Support = ({ db = null }) => {
+    const appdata = useAppContext();
     const [currentEmail, setCurrentEmail] = useState('');
     const [emails] = useState([]);
     useEffect(() => {
@@ -30,17 +31,17 @@ const Support = ({ user = null, db = null }) => {
     return (
         <div className='Chat'>
             <div className='chat-users'>
-            <ul>
-                {/* adding emails buttons to the sorted chat */}
-                {emails.map(email => (
-                    <li key={email}>
-                        <button onClick={(e)=>setCurrentEmail(e.target.value)} value={email}>{email}</button>
-                    </li>
-                ))}
-            </ul>
+                <ul>
+                    {/* adding emails buttons to the sorted chat */}
+                    {emails.map(email => (
+                        <li key={email}>
+                            <button onClick={(e) => setCurrentEmail(e.target.value)} value={email}>{email}</button>
+                        </li>
+                    ))}
+                </ul>
             </div>
             {/* Getting messages of the selected email */}
-            <SupportChannel user={user} db={db} currentEmail={currentEmail} />
+            <SupportChannel user={appdata.user} db={db} currentEmail={currentEmail} />
         </div>
     )
 }

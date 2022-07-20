@@ -1,16 +1,17 @@
-import { userContext } from '../components/userContext';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useAppContext } from '../components/userContext';
 export const Home = () => {
-    const {user} = useContext(userContext);
+    const appdata = useAppContext();
+    console.log(appdata);
     useEffect(() => {
-        if (user) {
+        if (appdata.user) {
             window.location.href = '/records';
         }
-    }, [user]);
-return (
-    <div>
-        <a href="/signup">Signup</a>
-        <a href="/login">Login</a>
-    </div>
-)
+    }, [appdata.user]);
+    return (
+        <div>
+            <a href="/signup">Signup</a>
+            <a href="/login">Login</a>
+        </div>
+    )
 }

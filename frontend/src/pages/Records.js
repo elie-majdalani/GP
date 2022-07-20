@@ -1,11 +1,11 @@
-import { useContext, useState, useEffect } from "react";
-import { userContext } from '../components/userContext';
-import {Sidenav} from "../components/Sidenav";
+import { useState, useEffect } from "react";
+import { useAppContext } from '../components/userContext';
+import { Sidenav } from "../components/Sidenav";
 import { Table } from "../components/Table";
 import { Charts } from "../components/Charts";
 
 export const Records = () => {
-    const { user } = useContext(userContext);
+    const appdata = useAppContext()
     const [charts, setCharts] = useState(false);
     const [add, setAdd] = useState(false);
     const [data, setData] = useState([]);
@@ -14,14 +14,11 @@ export const Records = () => {
     const [year, setYear] = useState(new Date().getFullYear());
     const [chartYear, setChartYear] = useState(new Date().getFullYear());
     const [oldest, setOldest] = useState(new Date());
-    const [month, setMonth] = useState(new Date().getMonth()+1);
+    const [month, setMonth] = useState(new Date().getMonth() + 1);
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const [monthsRevenue,setMonthsRevenue] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    const [monthsExpense,setMonthsExpense] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    const [monthsRevenue, setMonthsRevenue] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    const [monthsExpense, setMonthsExpense] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     useEffect(() => {
-        if(!user){
-            window.location.href = '/login'
-        }
         async function getData() {
             const result = await fetch("http://127.0.0.1:4001/getRecords", {
                 method: 'POST',
@@ -31,7 +28,7 @@ export const Records = () => {
                 },
                 body: JSON.stringify({
                     token: localStorage.getItem('token'),
-                    email: user.email,
+                    email: appdata.user.email,
                 })
             })
             const records = await result.json();
@@ -53,14 +50,14 @@ export const Records = () => {
                     setTotalExpense(prev => prev + item.amount);
                 }
                 // check month of record
-                if (item.type && defaultDate.getFullYear() === parseInt(chartYear) && defaultDate.getMonth()+1 <= parseInt(month)) {
+                if (item.type && defaultDate.getFullYear() === parseInt(chartYear) && defaultDate.getMonth() + 1 <= parseInt(month)) {
                     setMonthsRevenue(monthsRevenue => {
                         // add data to monthsRevenue array
                         monthsRevenue[defaultDate.getMonth()] += item.amount;
                         return monthsRevenue;
                     })
                 }
-                else if (item.type === false && defaultDate.getFullYear() === parseInt(chartYear) && defaultDate.getMonth()+1 <= parseInt(month)) {
+                else if (item.type === false && defaultDate.getFullYear() === parseInt(chartYear) && defaultDate.getMonth() + 1 <= parseInt(month)) {
                     setMonthsExpense(monthsExpense => {
                         monthsExpense[defaultDate.getMonth()] += item.amount;
                         return monthsExpense;
@@ -69,15 +66,20 @@ export const Records = () => {
             })
             setAdd(false)
         }
-        getData();
-    }, [add, year, month]);
+        if (appdata.user) {
+            getData();
+            console.log(appdata)
+        }
+
+
+    }, [add, year, month, appdata]);
     return (
         <div>
-        <Sidenav /> 
-        {charts ?
-        <Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth}/>
-         : 
-         <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />}
+            <Sidenav />
+            {charts ?
+                <Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth} />
+                :
+                <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />}
         </div>
     )
 }

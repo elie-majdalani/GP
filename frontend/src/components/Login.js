@@ -14,6 +14,7 @@ export const login = async (email, password) => {
         const user = await res.json();
         if (user.token) {
             localStorage.setItem('token', user.token);
+            console.log(user);
             return user
         }}
     catch (err) {
