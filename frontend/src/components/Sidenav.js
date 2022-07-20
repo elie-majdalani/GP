@@ -12,14 +12,14 @@ export const SideNav = () => {
 
                 <div id="sidenav-section-1">
                     <span id="sidenav-title-1" className="sidenav-title">Finances Dashboard</span>
-                    <a href="/Expences-Revenue">Expences & Revenue</a>
-                    <a href="/Charts">Charts</a>
+                    <a href="/records">Expences & Revenue</a>
+                    <a href="/records?type=chart">Charts</a>
                 </div>
 
                 <div id="sidenav-section-2">
                     <span id="sidenav-title-2" className="sidenav-title">Wallet Dashboard</span>
-                    <a href="/Deposit">Deposit</a>
-                    <a href="/Withdraw">Withdraw</a>
+                    <a href="/wallet">Withdraw</a>
+                    <a href="/wallet?type=deposit">Deposit</a>
                 </div>
 
                 <div id="sidenav-footer">

@@ -6,7 +6,7 @@ import { Charts } from "../components/Charts";
 
 export const Records = () => {
     const appdata = useAppContext()
-    const [charts, setCharts] = useState(false);
+    const [isCharts, setIsCharts] = useState(false);
     const [data, setData] = useState([]);
     const [totalExpense, setTotalExpense] = useState(0);
     const [totalRevenue, setTotalRevenue] = useState(0);
@@ -18,6 +18,13 @@ export const Records = () => {
     const [monthsRevenue, setMonthsRevenue] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     const [monthsExpense, setMonthsExpense] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     useEffect(() => {
+        const type = window.location.href.split('type=')[1]
+        if(type==='chart'){
+            setIsCharts(true)
+        }else{
+            setIsCharts(false)
+        }
+        
         async function getData() {
             const result = await axios.post("http://127.0.0.1:4001/getRecords", {
                 body: {
@@ -65,7 +72,7 @@ export const Records = () => {
     }, [year, month, appdata]);
     return (
         <div>
-            {charts ?
+            {isCharts ?
                 <Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth} />
                 :
                 <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />}

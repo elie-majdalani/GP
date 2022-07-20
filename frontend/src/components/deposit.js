@@ -1,4 +1,6 @@
 import { useAppContext } from '../components/userContext';
+import axios from 'axios';
+
 export const deposit = async (coin,user) => {
     const appdata = useAppContext()
     const body= {

@@ -4,24 +4,30 @@ import { useAppContext } from '../components/userContext';
 import { useState, useEffect } from "react";
 export const Wallet = () => {
     const appdata = useAppContext()
-    const [withdrawPage, setWithdrawPage] = useState(false);
+    const [isDeposit, setIsDeposit] = useState(false);
     const [walletAddress, setWalletAddress] = useState('');
     const [walletAmount, setWalletAmount] = useState('');
-    const [coin,setCoin] = useState('ETH');
+    const [coin, setCoin] = useState('ETH');
     useEffect(() => {
-        if(!appdata.user){
+        const type = window.location.href.split('type=')[1]
+        if(type==='deposit'){
+            setIsDeposit(true)
+        }else{
+            setIsDeposit(false)
+        }
+        if (!appdata.user) {
             window.location.href = '/login'
         }
     })
     return (
-        withdrawPage ?
+        isDeposit ?
             <div>
                 <span>Withdraw value in USD</span>
                 <input type="number" />
                 <span>Withdraw value in {coin}</span>
-                <input type="number" onChange={(e)=>setWalletAmount(e)}/>
-                <input type="text" placeholder="Wallet Address" onChange={(e)=>{setWalletAddress(e)}}/>
-                <button onClick={withdraw(coin,walletAmount)}>Withdraw</button>
+                <input type="number" onChange={(e) => setWalletAmount(e)} />
+                <input type="text" placeholder="Wallet Address" onChange={(e) => { setWalletAddress(e) }} />
+                <button onClick={withdraw(coin, walletAmount)}>Withdraw</button>
                 <div>
                     <button onClick={setCoin("ETH")}>Etherium</button>
                     <button onClick={setCoin("TRX")}>TRX</button>
@@ -31,7 +37,7 @@ export const Wallet = () => {
             :
             <div>
                 <button onClick={setWalletAddress(deposite(coin))}>Generate Wallet</button>
-                <input type="text" placeholder="Wallet Address" disabled value={walletAddress}/>
+                <input type="text" placeholder="Wallet Address" disabled value={walletAddress} />
                 <div>
                     <button onClick={setCoin("ETH")}>Etherium</button>
                     <button onClick={setCoin("TRX")}>TRX</button>

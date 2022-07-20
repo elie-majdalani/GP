@@ -9,6 +9,7 @@ import { Login } from './pages/Login';
 // import { checkGmail, saveGmail } from './components/gmail';
 import { Home } from './pages/Home';
 import { Records } from './pages/Records';
+import { Wallet } from './pages/Wallet';
 
 function App() {
   // useEffect(() => {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/records" element={<Records />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/wallet" element={<Wallet />} />
         </Routes>
       </div>
     </Router>
