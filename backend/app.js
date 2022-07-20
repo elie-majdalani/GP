@@ -4,7 +4,9 @@ const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const axios = require("axios");
+const Web3 = require("web3");
+const Tx = require('ethereumjs-tx').Transaction
 const corsOptions = {
   origin: '*',
   credentials: true,
@@ -18,14 +20,15 @@ module.exports = app;
 
 const User = require("./models/users");
 const Record = require("./models/records");
+const Transaction = require("./models/transactions");
 const auth = require("./middleware/auth");
 
-// Login
+//check login
 app.post('/', auth, async (req, res) => {
-  if (req.user) {
+  if (req.body) {
     const user = await User.findOne({ email: req.user.email });
     const token = jwt.sign(
-      { user_id: user._id, email },
+      { user_id: user._id, email:user.email},
       process.env.TOKEN_KEY,
       {
         expiresIn: "2h",
@@ -41,6 +44,7 @@ app.post('/', auth, async (req, res) => {
     res.status(401).send("Unauthenticated");
   }
 })
+// Login
 app.post("/login", async (req, res) => {
   try {
     // Get user input
@@ -191,3 +195,273 @@ app.post("/getRecords", auth, (req, res) => {
     res.status(200).send(records);
   })
 })
+app.post("/deposit", auth, async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.user.email });
+    //check what wallet is requested
+    let address
+    let ticker
+    if (req.body.coin === "ETH") {
+      //check if user has eth wallet and sends if it exists and sends it
+      if (user.wallet.eth.address) {
+        return res.status(200).json(user.wallet.eth.address);
+      }
+      //gets address from env file
+      address = process.env.ETH_WALLET;
+      ticker = "eth";
+    }
+    //check what wallet is requested
+    else if (req.body.coin === "TRX") {
+      //check if user has tron wallet and sends if it exists and sends it
+      if (user.wallet.trx.address) {
+        return res.status(200).json(user.wallet.trx.address);
+      }
+      //gets address from env file
+      address = process.env.TRX_WALLET;
+      ticker = "trx";
+    }
+    //check what wallet is requested
+    else if (req.body.coin === "USDT") {
+      //check if user has usdt wallet and sends if it exists and sends it
+      if (user.wallet.usdt.address) {
+        return res.status(200).json(user.wallet.usdt.address);
+      }
+      //gets address from env file
+      address = process.env.TRX_WALLET;
+      ticker = "trc20/usdt";
+    }
+    // replace variables according to the requested wallet
+    const query = new URLSearchParams({
+      apikey: process.env.CRYPT_API,
+      callback: `http://127.0.0.1:4001/callback?email=${req.user.email}&type=${req.body.type}`,
+      address: address,
+      multi_token: '1',
+    }).toString();
+
+    const resp = await axios.get(`https://pro-api.cryptapi.io/${ticker}/create/?${query}`, { method: 'GET' });
+
+    //get the address from the response
+    const wallet = resp.data.address_in;
+    //save the wallet to the user
+    if (req.body.coin === "ETH") {
+      user.wallet.eth.address = wallet;
+      await user.save();
+      return res.status(200).json(wallet);
+    }
+    //save the wallet to the user
+    else if (req.body.coin === "TRX") {
+      user.wallet.trx.address = wallet;
+      await user.save();
+      return res.status(200).json(wallet);
+    }
+    //save the wallet to the user
+    else if (req.body.coin === "USDT") {
+      user.wallet.usdt.address = wallet;
+      await user.save();
+      return res.status(200).json(wallet);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+})
+
+
+app.post("/withdraw", async (req, res) => {
+  const user = await User.findOne({ email: req.body.email });
+  try {
+    //eth coin
+    if (req.body.coin === "ETH") {
+      //initilize web3
+      let web3 = new Web3('https://rinkeby.infura.io/v3/29507f3c0a47434f880c3ece808831cb');
+      // get transaction count
+      let nonce = await web3.eth.getTransactionCount(process.env.ETH_WALLET, 'pending')
+      //get transaction fee
+      let gasPrice = await web3.eth.getGasPrice()
+      //get gas limit
+      const gasPriceLimit = await web3.eth.estimateGas({
+        nonce,
+        to: user.wallet.eth.address,
+        value: web3.utils.toHex(web3.utils.toWei(req.body.amount, 'ether')),
+      })
+      //send transaction info
+      let rawTransaction = {
+        from: process.env.ETH_WALLET,
+        to: user.wallet.eth.address,
+        value: web3.utils.toHex(web3.utils.toWei(req.body.amount, 'ether')),
+        gasPrice: web3.utils.toHex(gasPrice),
+        gasLimit: web3.utils.toHex(gasPrisceLimit),
+        nonce: web3.utils.toHex(nonce)
+      }
+      //intialize transaction
+      let transaction = new Tx(rawTransaction, { chain: 'rinkeby' })
+      //sign transaction
+      transaction.sign(Buffer.from(process.env.ETH_PRIVATE_KEY, 'hex'))
+      //convert transaction into a series of bytes
+      let serializedTransaction = transaction.serialize()
+      //send signed transaction to the network
+      let receipt = await web3.eth.sendSignedTransaction('0x' + serializedTransaction.toString('hex'))
+      //get the transaction hash
+      const hasedId = receipt.transactionHash;
+      //save the transaction
+      const newTransaction = await Transaction.create({
+        user_id: user._id,
+        email: user.email,
+        amount: req.body.amount,
+        currency: "ETH",
+        type: 0,
+        trx_id: hasedId,
+      })
+      //add the transaction to the user
+      user.wallet.eth.balance = user.wallet.eth.balance - req.body.amount;
+      return res.status(200).json(newTransaction);
+
+
+      //Tron network coins
+    } else {
+      //get coin info
+      const { coin, amount, recipient } = req.body
+      //prepare transaction
+      const payload = { sender: '', type: '', recipient, amount }
+      try {
+        let walletData
+        //get the wallet address
+        if (coin === "USDT") {
+          //check if user has enough USDT
+          const wallet = await axios.get(`https://pretixe.com/v1/wallets?api=${process.env.PRETIXE_API_KEY}&type=usdt_trc20`);
+          walletData = wallet.data.data[0]
+          payload.sender = walletData.address
+          payload.type = 'usdt_trc20'
+        }
+        if (coin === "TRX") {
+          //check if user has enough TRX
+          const wallet = await axios.get(`https://pretixe.com/v1/wallets?api=${process.env.PRETIXE_API_KEY}&type=trx`);
+          walletData = wallet.data.data[0]
+          payload.sender = walletData.address
+          payload.type = 'trx'
+        }
+        //return if not enough funds
+        if (walletData.usd_value < amount)
+          return res.status(400).json({ error: 'Insufficient funds' })
+        try {
+          //send transaction
+          const withdraw = await axios.post(`https://pretixe.com/v1/pay?api=${process.env.PRETIXE_API_KEY}`, {
+            body: payload,
+          })
+          //save the transaction
+          if (withdraw.success) {
+            const query = new URLSearchParams({
+              apikey: process.env.CRYPT_API,
+              prices: '1'
+            }).toString();
+            const respond = await axios.get(`https://pro-api.cryptapi.io/${payload.type}/info/?${query}`)
+            //deduct the amount from the user's wallet
+            if (coin === "TRX") {
+              user.wallet.trx.balance = user.wallet.trx.balance - amount * respond.data.prices.USD
+            }
+            else if (coin === "USDT") {
+              user.wallet.usdt.balance = user.wallet.usdt.balance - amount * respond.data.prices.USD
+            }
+            //save the transaction
+            await new Transaction({
+              user_id: _id,
+              email: email,
+              amount: amount,
+              type: 0,
+              status: 2,
+              currency: coin,
+            }).save()
+
+            return { success: true }
+          }
+          return res.status(400).json({ error: 'Transaction failed' })
+        } catch (error) {
+
+          return res.status(400).json({ error: error })
+        }
+      } catch (error) {
+        return res.status(400).json({ error: error })
+      }
+
+    }
+  } catch (err) {
+    console.log(err);
+  }
+})
+
+//wait for deposite
+app.post("/callback", async (req, res) => {
+  try {
+    //get query
+    const payload = req.query
+    //get the transaction info with converted prices
+    const { address_in, secret, txid_in, value_coin, value_forwarded_coin, pending, email, type } = payload
+    //get coin
+    let { coin } = payload
+    let transaction
+    //check if transaction is pending
+    if (pending == 1) {
+      //add to database
+      transaction = await new Transaction({
+        to_user_id: user._id,
+        currency: coin.toUpperCase(),
+        type: 1,
+        status: 1,
+        foreign_trx_id: txid_in,
+      }).save()
+      return res.status(200).json(transaction)
+    }
+
+    //split coin if it has a underscore
+    if (coin.split('_').length > 1) {
+      const [network, name] = coin.split('_')
+      coin = name
+    }
+
+    try {
+      //check if transaction already exists
+      const checkTx = await Transaction.findOne({
+        foreign_trx_id: txid_in,
+        status: ETransactionState.Confirmed,
+      }).lean()
+      // return if transaction already exists
+      if (checkTx) return
+      //get user
+      const user = await User.findOne(req.body.email)
+      //check if user exists
+      if (!user) {
+        this.Logger.error(`User ${userID} not found using ${coin.toUpperCase()} address: ${address_in}`)
+        return Promise.reject({ code: ERROR.UserNotFound, message: 'USER_NOT_FOUND' })
+      }
+      //add info to database
+      const total = fiat_amount
+      if (coin.toUpperCase() === 'TRX') {
+        user.wallet.trx.balance += value_coin
+      }
+      else if (coin.toUpperCase() === 'USDT') {
+        user.wallet.trx.balance += value_coin
+      }
+      else if (coin.toUpperCase() === 'ETH') {
+        user.wallet.trx.balance += value_coin
+      }
+      //save user
+      await user.save()
+      //add transaction to database
+      await new Transaction({
+        to_user_id: user._id,
+        currency: coin.toUpperCase(),
+        type: ETransactionType.Deposit,
+        status: ETransactionState.Confirmed,
+        amount: amount,
+        foreign_trx_id: txid_in,
+      }).save()
+
+    } catch (e) {
+      this.Logger.error(e)
+      return Promise.reject({ code: ERROR.InternalError, message: 'INTERNAL_ERROR' })
+    }
+  } catch (e) {
+    res.status(500).json(e)
+  }
+})
+
+
