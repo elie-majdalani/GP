@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { useAppContext } from '../components/userContext';
 import { Table } from "../components/Table";
 import { Charts } from "../components/Charts";
@@ -18,16 +19,11 @@ export const Records = () => {
     const [monthsExpense, setMonthsExpense] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     useEffect(() => {
         async function getData() {
-            const result = await fetch("http://127.0.0.1:4001/getRecords", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
-                body: JSON.stringify({
+            const result = await axios.post("http://127.0.0.1:4001/getRecords", {
+                body: {
                     token: localStorage.getItem('token'),
                     email: appdata.user.email,
-                })
+                }
             })
             const records = await result.json();
             setData(records);
@@ -63,10 +59,7 @@ export const Records = () => {
                 }
             })
         }
-        if (!appdata.user) {
-             window.location.href = '/login'
-        }
-        else{
+        if (appdata.user) {
             getData();
         }
     }, [year, month, appdata]);

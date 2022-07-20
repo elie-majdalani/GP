@@ -9,22 +9,16 @@ const AddRecord = ({ user , setAdd}) => {
 
 
     const handleSubmit = async () => {
-        await fetch("http://127.0.0.1:4001/addRecord", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            body: JSON.stringify({
-                token: localStorage.getItem('token'),
-                email: user.email,
-                name,
-                category,
-                discription,
-                amount: parseInt(amount),   
-                type
-            })
-        }).then(res => { res.json() ; setAdd(true)})
+        const body = {
+            token: localStorage.getItem('token'),
+            email: user.email,
+            name,
+            category,
+            discription,
+            amount: parseInt(amount),   
+            type
+        }
+        await axios.post("http://127.0.0.1:4001/addRecord", body).then(res => { res.json() ; setAdd(true)})
     }
 
     return (
