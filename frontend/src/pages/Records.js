@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { useAppContext } from '../components/userContext';
-import { Sidenav } from "../components/Sidenav";
 import { Table } from "../components/Table";
 import { Charts } from "../components/Charts";
 
 export const Records = () => {
     const appdata = useAppContext()
     const [charts, setCharts] = useState(false);
-    const [add, setAdd] = useState(false);
     const [data, setData] = useState([]);
     const [totalExpense, setTotalExpense] = useState(0);
     const [totalRevenue, setTotalRevenue] = useState(0);
@@ -64,18 +62,16 @@ export const Records = () => {
                     })
                 }
             })
-            setAdd(false)
         }
-        if (appdata.user) {
+        if (!appdata.user) {
+             window.location.href = '/login'
+        }
+        else{
             getData();
-            console.log(appdata)
         }
-
-
-    }, [add, year, month, appdata]);
+    }, [year, month, appdata]);
     return (
         <div>
-            <Sidenav />
             {charts ?
                 <Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth} />
                 :

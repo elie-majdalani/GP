@@ -12,10 +12,8 @@ export const AppWrapper = ({
     }, [])
     const fetchData = async () => {
         const token = localStorage.getItem('token')
-        console.log('herer')
         if (token) {
             const userData = await User()
-            console.log(userData)
             setUser(userData)
         } else {
             setUser()
