@@ -24,7 +24,19 @@ const auth = require("./middleware/auth");
 app.post('/', auth, async (req, res) => {
   if (req.user) {
     const user = await User.findOne({ email: req.user.email });
-    res.status(200).send(user);
+    const token = jwt.sign(
+      { user_id: user._id, email },
+      process.env.TOKEN_KEY,
+      {
+        expiresIn: "2h",
+      }
+    );
+
+    // save user token
+    user.token = token;
+
+    // user
+    res.status(200).json(user);
   } else {
     res.status(401).send("Unauthenticated");
   }
