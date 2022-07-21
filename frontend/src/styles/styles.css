@@ -43,3 +43,43 @@
     justify-content: flex-start;
     align-items: center;
 }
+.right-home-main-div span{
+    font-family: 'Roboto', sans-serif;
+    font-style: regular;
+    text-align: center;
+    color: #ffffff;
+}
+.home-right-main-titles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-right-main-title{
+    font-size: 34px;
+    max-width: 80%;
+}
+#home-right-main-title-coin{
+    font-size: 38px;
+    color: #CBAC08;
+}
+#home-right-tile{
+    font-family: 'Roboto', sans-serif;
+    font-style: regular;
+    font-size: 32px;
+    text-align: center;
+}
+.home-buttons-div{
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+#home-right-subtitle{
+    font-family: 'Roboto', sans-serif;
+    font-style: regular;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+
+}

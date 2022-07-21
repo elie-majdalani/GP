@@ -29,12 +29,14 @@ export const Home = () => {
                     <a href="/login">Login</a>
                 </div>
                 <div className="home-right-main-titles">
-                    <span id="home-right-main-title">Finance Monitoring</span>
-                    <span id="home-right-main-title-coin">coin</span>
+                    <span id="home-right-main-title">Finance management and crypto wallets are two sides of the same</span>
+                    <span id="home-right-main-title-coin"> coin </span>
                 </div>
                 <img id="wallet" src={wallet} alt='wallet' />
                 <span id="home-right-tile">Crypto Wallet</span>
-                <span id="home-right-subtitle">Crypto wallet access for your <p>coins</p> and financial databade in one place</span>
+                <div className='home-right-subtitle'>
+                    <span id="home-right-subtitle">Crypto wallet access for your <span id="home-right-subtitle-coin"> coins </span> and financial databade in one place</span>
+                </div>
             </div>
         </div>
     )
