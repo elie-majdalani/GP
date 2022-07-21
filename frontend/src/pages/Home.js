@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useAppContext } from '../components/userContext';
-import style from '../styles/styles.css';
 export const Home = () => {
     const appdata = useAppContext();
     console.log(appdata);
