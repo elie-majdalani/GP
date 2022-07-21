@@ -2,12 +2,16 @@
     display: flex;
     justify-content: space-between;
 }
-.hero-home-div-left{
+.left-home-main-div{
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+}
+#home-gp{
+    margin-top: 25px;
+    margin-bottom: 35px;
 }
 
 .right-home-main-div{
