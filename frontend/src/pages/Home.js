@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useAppContext } from '../components/userContext';
 import GP from '../assets/GP.png';
-import laptop from '../assets/laptop-v2.jpg';
+import laptop from '../assets/laptop-v2.png';
 import notes from '../assets/Banknotes.png';
 // import stylesheet
 import '../styles/styles.css';
