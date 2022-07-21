@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding-bottom: 35px;
 }
 #home-gp{
     margin-top: 25px;
@@ -15,6 +16,18 @@
 }
 #home-laptop{
     max-width: 85%;
+}
+#home-left-title{
+    font-family: 'Roboto', sans-serif;
+    font-style: regular;
+    font-size: 32px;
+    text-align: center;
+}
+#home-left-subtitle{
+    font-family: 'Roboto', sans-serif;
+    font-style: regular;
+    font-size: 18px;
+    text-align: center;
 }
 
 .right-home-main-div{
