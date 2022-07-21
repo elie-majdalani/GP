@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useAppContext } from '../components/userContext';
+import style from '../styles/styles.css';
 export const Home = () => {
     const appdata = useAppContext();
     console.log(appdata);
@@ -10,8 +11,14 @@ export const Home = () => {
     }, [appdata.user]);
     return (
         <div>
-            <a href="/signup">Signup</a>
-            <a href="/login">Login</a>
+            <div className="left-home-main-div">
+
+            </div>
+            <div className="right-home-main-div">
+                <a href="/signup">Signup</a>
+                <a href="/login">Login</a>
+            </div>
+
         </div>
     )
 }
