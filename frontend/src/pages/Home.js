@@ -23,8 +23,16 @@ export const Home = () => {
                 <span id="home-left-subtitle">Keep an eye on you income and expenditure using graphs and tables</span>
             </div>
             <div className="right-home-main-div">
-                <a href="/signup">Signup</a>
-                <a href="/login">Login</a>
+                <div className="home-buttons-div">
+                    <a href="/signup">Signup</a>
+                    <a href="/login">Login</a>
+                </div>
+                <div className="home-right-main-titles">
+                    <span id="home-right-main-title">Finance Monitoring</span>
+                    <span id="home-right-main-title-coin">coin</span>
+                </div>
+                <span id="home-right-tile">Crypto Wallet</span>
+                <span id="home-right-subtitle">Crypto wallet access for your <p>coins</p> and financial databade in one place</span>
             </div>
         </div>
     )
