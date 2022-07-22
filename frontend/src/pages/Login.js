@@ -8,10 +8,12 @@ export const Login = () => {
     const [password, setPassword] = useState('');
     useEffect(() => {
         if (appdata.user) {
-        if (appdata.user.role==="user") {
-            window.location.href = '/records';
-        }}
-    }, [appdata.user]);
+            if (appdata.user.role === "user") {
+                window.location.href = '/records';}
+            if (appdata.user.role === "support") {
+                window.location.href = '/';}
+            
+        }}, [appdata.user]);
     return (
         <div className="login">
             <h1>Login</h1>
