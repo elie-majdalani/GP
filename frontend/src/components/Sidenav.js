@@ -1,5 +1,12 @@
-export const SideNav = () => {
+export const SideNav = ({ setIsMessages, isMessages }) => {
 
+    const handleClick = () => {
+        if (isMessages)
+            setIsMessages(false)
+        else {
+            setIsMessages(true)
+        }
+    }
     return (
         <div>
             <div id="sidenav">
@@ -25,7 +32,7 @@ export const SideNav = () => {
                 <div id="sidenav-footer">
                     <hr className="sidenav-divider"></hr>
                     <img src="#" alt="Support" />
-                    <span>Support</span>
+                    <a onClick={()=>{handleClick()}} href="#support">Support</a>
                 </div>
             </div>
         </div>
