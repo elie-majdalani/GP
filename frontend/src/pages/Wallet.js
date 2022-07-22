@@ -11,19 +11,19 @@ export const Wallet = ({ db }) => {
     const [coin, setCoin] = useState('ETH');
     useEffect(() => {
         const type = window.location.href.split('type=')[1]
+        if(appdata){
         if (type === 'deposit') {
             setIsDeposit(true)
         } else {
             setIsDeposit(false)
-        }
-    }, [appdata.user])
-    console.log(appdata.rate)
+        }}
+    }, [appdata.user,appdata])
     return (
         <div>
             {!isDeposit ?
                 (<div>
                     <span>Withdraw value in USD</span>
-                    {/* <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} /> */}
+                    <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
                     <span>Withdraw value in {coin}</span>
                     <input type="number" value={walletAmount} onChange={(e) => {
                         setWalletAmount(e.currentTarget.value)
