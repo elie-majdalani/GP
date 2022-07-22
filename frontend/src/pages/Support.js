@@ -22,22 +22,25 @@ const Support = ({ db = null }) => {
                             emails.push(message.email)
                         }
                     })
-                    setCurrentEmail(emails[0])
+                    setCurrentEmail(emails[1])
                 })
             return emailDB;
         }
-    }, [db]);
+    }, [db, emails]);
 
     return (
         <div className='Chat'>
             <div className='chat-users'>
                 <ul>
                     {/* adding emails buttons to the sorted chat */}
-                    {emails.map(email => (
-                        <li key={email}>
-                            <button onClick={(e) => setCurrentEmail(e.target.value)} value={email}>{email}</button>
-                        </li>
-                    ))}
+                    {emails.map(email => {
+                        if (!email)
+                            return null;
+                        else
+                            return (<li key={email}>
+                                <button onClick={(e) => setCurrentEmail(e.target.value)} value={email}>{email}</button>
+                            </li>)
+                    })}
                 </ul>
             </div>
             {/* Getting messages of the selected email */}
