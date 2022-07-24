@@ -168,3 +168,7 @@
 .login-section-div #or{
     font-weight: 600;
 }
+
+.sidenav-divider{
+    max-width: 300px;
+}
