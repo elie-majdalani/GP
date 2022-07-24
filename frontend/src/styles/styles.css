@@ -115,7 +115,7 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
-
+.signup-page-header-div,
 .login-section-div{
     display: flex;
     flex-direction: column;

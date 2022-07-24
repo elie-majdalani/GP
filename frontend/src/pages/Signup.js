@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { register } from '../components/signup';
 import { useAppContext } from '../components/userContext';
+import logo from '../assets/logo.png';
 
 export const SignUp = () => {
     const appdata = useAppContext();
@@ -14,7 +15,11 @@ export const SignUp = () => {
         }
     }, [appdata.user]);
     return (
-        <div className="signup">
+        <div className="signup-page-main-div">
+            <div className='signup-page-header-div'>
+                <img id='logo' src={logo} alt='logo' />
+            </div>
+
             <h1>Register</h1>
             <input type="text" placeholder="Display Name" onChange={(e) => { setDisplayName(e.target.value) }} />
             <input type="text" placeholder="Email" onChange={(e) => { setEmail(e.target.value) }} />
