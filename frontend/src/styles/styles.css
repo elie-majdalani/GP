@@ -79,6 +79,9 @@
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
+.home-buttons-div a{
+    text-decoration: none;
+}
 .home-buttons-div #signup-btn{
     color: #CBAC08;
 }
