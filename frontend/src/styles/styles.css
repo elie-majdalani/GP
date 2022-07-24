@@ -1,3 +1,4 @@
+/* home page */
 .hero-home-div{
     display: flex;
     justify-content: space-between;
@@ -107,6 +108,8 @@
     padding: 5px 40px;
     margin-right: 25px;
 }
+
+/* login and signup pages */
 .signup-page-header-div,
 .login-page-header-div{
     display: flex;
@@ -168,6 +171,7 @@
 .login-section-div #or{
     font-weight: 600;
 }
+/* sidenav */
 
 .sidenav-divider{
     max-width: 300px;
