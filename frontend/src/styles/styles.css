@@ -120,10 +120,10 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
+    font-family: 'Roboto', sans-serif;
 }
 
 .login-section-div h1{
-    font-family: 'Roboto', sans-serif;
     font-style: regular;
     font-size: 32px;
     text-align: center;
