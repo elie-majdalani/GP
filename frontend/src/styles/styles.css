@@ -137,4 +137,5 @@
     line-height: normal;
     resize: none;
     background: transparent;
+    min-width: 300px;
 }
