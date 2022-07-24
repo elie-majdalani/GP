@@ -28,7 +28,7 @@ app.post('/', auth, async (req, res) => {
   if (req.body) {
     const user = await User.findOne({ email: req.user.email });
     const token = jwt.sign(
-      { user_id: user._id, email:user.email},
+      { user_id: user._id, email: user.email },
       process.env.TOKEN_KEY,
       {
         expiresIn: "2h",
