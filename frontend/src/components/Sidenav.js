@@ -1,4 +1,5 @@
 import logo from '../assets/logo.png';
+import support from '../assets/support.png';
 export const SideNav = ({ setIsMessages, isMessages }) => {
     
 
@@ -33,7 +34,7 @@ export const SideNav = ({ setIsMessages, isMessages }) => {
 
                 <div id="sidenav-footer">
                     <hr className="sidenav-divider"></hr>
-                    <img src="#" alt="Support" />
+                    <img id='support' src={support} alt='support' />
                     <a onClick={()=>{handleClick()}} href="#support">Support</a>
                 </div>
             </div>
