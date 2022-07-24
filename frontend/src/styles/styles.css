@@ -83,3 +83,9 @@
     justify-content: center;
 
 }
+
+.home-buttons-div a{
+    background-color: white;
+    border-radius: 50px;
+    padding: 5px 40px;
+}
