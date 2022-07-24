@@ -25,8 +25,8 @@ export const Home = () => {
             </div>
             <div className="right-home-main-div">
                 <div className="home-buttons-div">
-                    <a href="/signup">Signup</a>
-                    <a href="/login">Login</a>
+                    <a id ="signup-btn" href="/signup">Signup</a>
+                    <a id="login-btn" href="/login">Login</a>
                 </div>
                 <div className="home-right-main-titles">
                     <span id="home-right-main-title">Finance management and crypto wallets are two sides of the same</span>
