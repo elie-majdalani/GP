@@ -83,7 +83,9 @@
     justify-content: center;
 
 }
-
+.home-buttons-div{
+    width: 100%;
+}
 .home-buttons-div a{
     background-color: white;
     border-radius: 50px;
