@@ -15,8 +15,8 @@ export const SideNav = ({ setIsMessages, isMessages }) => {
                 <div id="sidenav-header">
                     <div id="sidenav-header-logo">
                     <img id='logo' src={logo} alt='logo' />
-                        <hr className="sidenav-divider"></hr>
                     </div>
+                    <hr className="sidenav-divider"></hr>
                 </div>
 
                 <div id="sidenav-section-1">

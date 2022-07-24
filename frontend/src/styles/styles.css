@@ -172,7 +172,10 @@
     font-weight: 600;
 }
 /* sidenav */
-
+#sidenav{
+    background-color: black;
+    color: #ffffff;
+}
 .sidenav-divider{
     max-width: 300px;
 }
