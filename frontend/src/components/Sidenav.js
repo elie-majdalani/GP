@@ -1,4 +1,6 @@
+import logo from '../assets/logo.png';
 export const SideNav = ({ setIsMessages, isMessages }) => {
+    
 
     const handleClick = () => {
         if (isMessages)
@@ -12,7 +14,7 @@ export const SideNav = ({ setIsMessages, isMessages }) => {
             <div id="sidenav">
                 <div id="sidenav-header">
                     <div id="sidenav-header-logo">
-                        <img src="#" alt="Logo" />
+                    <img id='logo' src={logo} alt='logo' />
                         <hr className="sidenav-divider"></hr>
                     </div>
                 </div>
