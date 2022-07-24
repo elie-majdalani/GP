@@ -176,6 +176,13 @@
     background-color: black;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
+    max-width: 20%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
 }
 .sidenav-divider{
     max-width: 85%;
