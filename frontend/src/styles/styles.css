@@ -121,6 +121,7 @@
     flex-direction: column;
     align-items: center; 
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 50px;
 }
 .signup-section-div h1,
 .login-section-div h1{
