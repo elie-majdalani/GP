@@ -24,7 +24,7 @@ export const Login = () => {
                 <img id='logo' src={logo} alt='logo' />
             </div>
 
-            <div className="login">
+            <div className="login-section-div">
                 <h1>Login</h1>
                 <input type="text" placeholder="Email" onChange={(e) => { setEmail(e.target.value) }} />
                 <input type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} />
