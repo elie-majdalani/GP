@@ -155,3 +155,8 @@
     color: #ffffff;
     border: 2px solid #ffffff;
 }
+
+.login-section-div a {
+    text-decoration: none;
+    color: #CBAC08;
+}
