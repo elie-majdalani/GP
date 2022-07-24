@@ -28,7 +28,7 @@ export const Login = () => {
                 <h1>Login</h1>
                 <input type="text" placeholder="Email" onChange={(e) => { setEmail(e.target.value) }} />
                 <input type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} />
-                <button onClick={async () => {
+                <button id="main-btn" onClick={async () => {
                     const userData = await login(email, password)
                     appdata.setUser(userData);
                 }}>Login</button>
