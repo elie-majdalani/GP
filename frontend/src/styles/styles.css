@@ -175,6 +175,7 @@
 #sidenav{
     background-color: black;
     color: #ffffff;
+    font-family: 'Roboto', sans-serif;
 }
 .sidenav-divider{
     max-width: 85%;
