@@ -25,7 +25,7 @@ export const SignUp = () => {
                 <input type="text" placeholder="Email" onChange={(e) => { setEmail(e.target.value) }} />
                 <input type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} />
                 <input type="password" placeholder="Confirm Password" onChange={(e) => { setConfirmPassword(e.target.value) }} />
-                <button onClick={async () => { await register(displayName, email, password, confirmPassword) }}>Create My Account</button>
+                <button id="main-btn" onClick={async () => { await register(displayName, email, password, confirmPassword) }}>Create My Account</button>
                 <span>Already have an account? <a href="/login">Login</a></span>
             </div>
         </div>
