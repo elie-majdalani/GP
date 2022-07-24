@@ -79,6 +79,9 @@
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
+.home-buttons-div #signup-btn{
+    color: #CBAC08;
+}
 
 #home-right-subtitle{
     font-family: 'Roboto', sans-serif;
