@@ -186,6 +186,9 @@
 .sidenav-divider{
     max-width: 85%;
 }
+#sidenav-header-logo{
+    margin-top: 10%;
+}
 
 #sidenav-header-logo,
 #sidenav-section-1,
@@ -210,6 +213,7 @@
     color: white;
     font-size: 18px;
     margin-bottom: 15px;
+    padding-left: 10px;
 }
 
 #sidenav-section-1 span,
