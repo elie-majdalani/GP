@@ -1,7 +1,7 @@
 import logo from '../assets/logo.png';
 import support from '../assets/support.png';
 export const SideNav = ({ setIsMessages, isMessages }) => {
-    
+
 
     const handleClick = () => {
         if (isMessages)
@@ -15,8 +15,11 @@ export const SideNav = ({ setIsMessages, isMessages }) => {
             <div id="sidenav">
                 <div id="sidenav-header">
                     <div id="sidenav-header-logo">
-                    <img id='logo' src={logo} alt='logo' />
+                        <img id='logo' src={logo} alt='logo' />
                     </div>
+                </div>
+
+                <div className='sidenav-hr'>
                     <hr className="sidenav-divider"></hr>
                 </div>
 
@@ -32,10 +35,13 @@ export const SideNav = ({ setIsMessages, isMessages }) => {
                     <a href="/wallet?type=deposit">Deposit</a>
                 </div>
 
-                <div id="sidenav-footer">
+                <div className='sidenav-hr'>
                     <hr className="sidenav-divider"></hr>
+                </div>
+
+                <div id="sidenav-footer">
                     <img id='support' src={support} alt='support' />
-                    <a onClick={()=>{handleClick()}} href="#support">Support</a>
+                    <a onClick={() => { handleClick() }} href="#support">Support</a>
                 </div>
             </div>
         </div>

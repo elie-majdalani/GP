@@ -4,7 +4,6 @@ import GP from '../assets/GP.png';
 import laptop from '../assets/laptop-v2.png';
 import notes from '../assets/Banknotes.png';
 import wallet from '../assets/Wallet.png';
-// import stylesheet
 import '../styles/styles.css';
 export const Home = () => {
     const appdata = useAppContext();
