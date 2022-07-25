@@ -242,5 +242,10 @@
 
 /* layout section */
 .layout{
-    max-width: 15%;
+    width: 15%;
+}
+.main-wrapper-div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

@@ -10,7 +10,7 @@ export const Layout = ({ children }) => {
     const appdata = useAppContext();
     return (
         appdata.user && appdata.user.role === "user" ? (
-            <div>
+            <div className='main-wrapper-div'>
                 <div className="layout">
                     <SideNav setIsMessages={setIsMessages} isMessages={isMessages} />
                 </div>
