@@ -33,18 +33,22 @@ export const Wallet = ({ db }) => {
                             </div>
                         </div>
                         <div className="wallet-body-content">
+                            <div className="wallet-body-content-usd">
+                                <span>Withdraw value in USD</span>
+                                <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
+                            </div>
+                            <div className="wallet-body-content-coin">
+                                <span>Withdraw value in {coin}</span>
+                                <input type="number" value={walletAmount} onChange={(e) => {
+                                    setWalletAmount(e.currentTarget.value)
+                                }} />
+                            </div>
+                            <div className="wallet-body-content-adress">
+                                <span>Reciving Address</span>
+                                <input type="text" placeholder="Wallet Address" onChange={(e) => { setWalletAddress(e) }} />
+                            </div>
 
-                            <span>Withdraw value in USD</span>
-                            <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
-                            
-                            <span>Withdraw value in {coin}</span>
-                            <input type="number" value={walletAmount} onChange={(e) => {
-                                setWalletAmount(e.currentTarget.value)
-                            }} />
-                            <span>Reciving Address</span>
-                            <input type="text" placeholder="Wallet Address" onChange={(e) => { setWalletAddress(e) }} />
-
-                            <button id="main-btn" onClick={async () => await Withdraw(coin, walletAmount)}>Withdraw</button>
+                            <button className="main-btn" id="withdraw-btn" onClick={async () => await Withdraw(coin, walletAmount)}>Withdraw</button>
                         </div>
                     </div>
 
