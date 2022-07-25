@@ -2,6 +2,7 @@ import { Withdraw } from "../components/withdraw";
 import { Deposit } from "../components/deposit";
 import { useAppContext } from '../components/userContext';
 import { useState, useEffect } from "react";
+import compare from '../assets/compare.png';
 
 export const Wallet = ({ db }) => {
     const appdata = useAppContext();
@@ -40,6 +41,9 @@ export const Wallet = ({ db }) => {
                                 <div className="wallet-body-content-usd">
                                     <span>Withdraw value in USD</span>
                                     <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
+                                </div>
+                                <div className="wallet-body-content-compare">
+                                    <img id="compare" src={compare} alt='compare' />
                                 </div>
                                 <div className="wallet-body-content-coin">
                                     <span>Withdraw value in {coin}</span>
