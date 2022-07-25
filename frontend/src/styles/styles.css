@@ -316,10 +316,14 @@
 
 .wallet-sidenav{
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 20%;
 }
 .wallet-sidenav-coin button{
     background-color: white;
-    padding: 0;
+    padding: 10px;
     border: none;
     font-size: 18px;
     font-weight: 500;
@@ -328,7 +332,11 @@
 .wallet-sidenav-coin button:hover{
     background-color: #CBAC08;
     color: white;
+    border-radius: 8px;
 }
 .wallet-sidenav-coin span{
     margin-left: 20px;
+}
+.wallet-sidenav-coin{
+    margin: 20px 0;
 }
