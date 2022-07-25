@@ -62,19 +62,29 @@ export const Wallet = ({ db }) => {
                     </div>
 
                     <div className="wallet-sidenav">
-                        <div className="wallet-sidenav-coin">
-                            <button onClick={() => setCoin("ETH")}>Etherium</button>
-                            <span>{appdata.user && appdata.user.wallet.eth && appdata.user.wallet.eth.balance}</span>
+                        <div className="wallet-sidenav-header">
+                            <div className="wallet-sidenav-header-title">
+                                <h1>Wallet</h1>
+                            </div>
+                            <div className="wallet-sidenav-header-hr">
+                                <hr />
+                            </div>
                         </div>
+                        <div className="wallet-sidenav-content">
+                            <div className="wallet-sidenav-coin">
+                                <button onClick={() => setCoin("ETH")}>Etherium</button>
+                                <span>{appdata.user && appdata.user.wallet.eth && appdata.user.wallet.eth.balance}</span>
+                            </div>
 
-                        <div className="wallet-sidenav-coin">
-                            <button onClick={() => setCoin("TRX")}>TRX</button>
-                            <span>{appdata.user && appdata.user.wallet.trx && appdata.user.wallet.trx.balance}</span>
-                        </div>
+                            <div className="wallet-sidenav-coin">
+                                <button onClick={() => setCoin("TRX")}>TRX</button>
+                                <span>{appdata.user && appdata.user.wallet.trx && appdata.user.wallet.trx.balance}</span>
+                            </div>
 
-                        <div className="wallet-sidenav-coin">
-                            <button onClick={() => setCoin("USDT")}>USDT</button>
-                            <span>{appdata.user && appdata.user.wallet.usdt && appdata.user.wallet.usdt.balance}</span>
+                            <div className="wallet-sidenav-coin">
+                                <button onClick={() => setCoin("USDT")}>USDT</button>
+                                <span>{appdata.user && appdata.user.wallet.usdt && appdata.user.wallet.usdt.balance}</span>
+                            </div>
                         </div>
                     </div>
                 </div>)
