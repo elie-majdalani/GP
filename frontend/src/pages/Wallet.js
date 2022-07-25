@@ -90,21 +90,62 @@ export const Wallet = ({ db }) => {
                 </div>)
                 :
                 (<div>
-                    <button onClick={async () => {
-                        const body = {
-                            coin,
-                            token: localStorage.getItem('token'),
-                            email: appdata.user.email
-                        }
-                        const wallet = await Deposit(body);
-                        setWalletAddress(wallet)
-                    }}>Generate Wallet</button>
-                    <input type="text" placeholder="Wallet Address" disabled value={walletAddress} />
-                    <div>
-                        <button onClick={() => setCoin("ETH")}>Etherium</button><span>{appdata.user && appdata.user.wallet.eth && appdata.user.wallet.eth.balance}</span>
-                        <button onClick={() => setCoin("TRX")}>TRX</button><span>{appdata.user && appdata.user.wallet.trx && appdata.user.wallet.trx.balance}</span>
-                        <button onClick={() => setCoin("USDT")}>USDT</button><span>{appdata.user && appdata.user.wallet.usdt && appdata.user.wallet.usdt.balance}</span>
+                    <div className="wallet-body">
+                        <div className="wallet-body-header">
+                            <div className="wallet-body-header-title">
+                                <h1>Wallet</h1>
+                            </div>
+                            <div className="wallet-body-header-hr">
+                                <hr />
+                            </div>
+                        </div>
+                        <div className="wallet-body-content">
+                            <div className="wallet-body-content-warning">
+                                <span id="withdraw-warning">Ensure the network you choose to deposit matches the withdrawal network, or assets may be lost</span>
+                            </div>
+                            <div className="wallet-body-content-genrate">
+                                <span>Deposit USDT (TRC20)</span>
+                                <button className="main-btn" onClick={async () => {
+                                    const body = {
+                                        coin,
+                                        token: localStorage.getItem('token'),
+                                        email: appdata.user.email
+                                    }
+                                    const wallet = await Deposit(body);
+                                    setWalletAddress(wallet)
+                                }}>Generate Wallet</button>
+                                <input id="reciving-address" type="text" placeholder="Wallet Address" disabled value={walletAddress} />
+                            </div>
+                        </div>
                     </div>
+
+                    <div className="wallet-sidenav">
+                        <div className="wallet-sidenav-header">
+                            <div className="wallet-sidenav-header-title">
+                                <h1>Coins</h1>
+                            </div>
+                            <div className="wallet-sidenav-header-hr">
+                                <hr />
+                            </div>
+                        </div>
+                        <div className="wallet-sidenav-content">
+                            <div className="wallet-sidenav-coin">
+                                <button onClick={() => setCoin("ETH")}>Etherium</button>
+                                <span>{appdata.user && appdata.user.wallet.eth && appdata.user.wallet.eth.balance}</span>
+                            </div>
+
+                            <div className="wallet-sidenav-coin">
+                                <button onClick={() => setCoin("TRX")}>TRX</button>
+                                <span>{appdata.user && appdata.user.wallet.trx && appdata.user.wallet.trx.balance}</span>
+                            </div>
+
+                            <div className="wallet-sidenav-coin">
+                                <button onClick={() => setCoin("USDT")}>USDT</button>
+                                <span>{appdata.user && appdata.user.wallet.usdt && appdata.user.wallet.usdt.balance}</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>)}
         </div>
 
