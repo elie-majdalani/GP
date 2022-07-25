@@ -266,6 +266,7 @@
     flex-wrap: nowrap;
     margin-top: 50px;
     font-size: 18px;
+    padding-left: 5%;
 }
 .wallet-body-content span{
     margin-bottom: 25px;
