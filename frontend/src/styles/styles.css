@@ -176,7 +176,7 @@
     background-color: black;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
-    max-width: 15%;
+    /* max-width: 15%; */
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -238,4 +238,9 @@
 }
 #sidenav-title-2{
     color: #CBAC08;
+}
+
+/* layout section */
+.layout{
+    max-width: 15%;
 }
