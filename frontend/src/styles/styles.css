@@ -301,6 +301,9 @@
     font-weight: 600;
     padding-left: 10%;
 }
+.wallet-body-content-compare{
+    margin: 0px 10px;
+}
 
 /* wallet sidenav */
 .wallet-sidenav{
