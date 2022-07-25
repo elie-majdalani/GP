@@ -256,12 +256,16 @@
 }
 
 /* wallet section */
+.wallet-body{
+    font-family: 'Roboto', sans-serif;
+}
 .wallet-body-content{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
     margin-top: 50px;
+    font-size: 18px;
 }
 .wallet-body-content span{
     margin-bottom: 25px;
