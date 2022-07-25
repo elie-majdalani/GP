@@ -186,3 +186,17 @@
 .sidenav-divider{
     max-width: 85%;
 }
+
+#sidenav-header-logo,
+#sidenav-section-1,
+#sidenav-section-2,
+#sidenav-footer{
+    padding-left: 10%;
+}
+
+
+#sidenav-section-1,
+#sidenav-section-2{
+    display: flex;
+    flex-direction: column;
+}
