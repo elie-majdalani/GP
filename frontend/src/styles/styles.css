@@ -225,3 +225,9 @@
     text-decoration: none;
     color: white;
 }
+.sidenav-title{
+    font-weight: 600;
+}
+#sidenav-title-2{
+    color: #CBAC08;
+}
