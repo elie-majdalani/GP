@@ -11,26 +11,44 @@ export const Wallet = ({ db }) => {
     const [coin, setCoin] = useState('ETH');
     useEffect(() => {
         const type = window.location.href.split('type=')[1]
-        if(appdata){
-        if (type === 'deposit') {
-            setIsDeposit(true)
-        } else {
-            setIsDeposit(false)
-        }}
-    }, [appdata.user,appdata])
+        if (appdata) {
+            if (type === 'deposit') {
+                setIsDeposit(true)
+            } else {
+                setIsDeposit(false)
+            }
+        }
+    }, [appdata.user, appdata])
     return (
         <div>
             {!isDeposit ?
                 (<div>
-                    <span>Withdraw value in USD</span>
-                    <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
-                    <span>Withdraw value in {coin}</span>
-                    <input type="number" value={walletAmount} onChange={(e) => {
-                        setWalletAmount(e.currentTarget.value)
-                    }} />
-                    <input type="text" placeholder="Wallet Address" onChange={(e) => { setWalletAddress(e) }} />
-                    <button onClick={async () => await Withdraw(coin, walletAmount)}>Withdraw</button>
-                    <div>
+                    <div className="wallet-body">
+                        <div className="wallet-body-header">
+                            <div className="wallet-body-header-title">
+                                <h1>Wallet</h1>
+                            </div>
+                            <div className="wallet-body-header-hr">
+                                <hr />
+                            </div>
+                        </div>
+                        <div className="wallet-body-content">
+
+                            <span>Withdraw value in USD</span>
+                            <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
+                            
+                            <span>Withdraw value in {coin}</span>
+                            <input type="number" value={walletAmount} onChange={(e) => {
+                                setWalletAmount(e.currentTarget.value)
+                            }} />
+                            <span>Reciving Address</span>
+                            <input type="text" placeholder="Wallet Address" onChange={(e) => { setWalletAddress(e) }} />
+
+                            <button id="main-btn" onClick={async () => await Withdraw(coin, walletAmount)}>Withdraw</button>
+                        </div>
+                    </div>
+
+                    <div className="wallet-sidenav">
                         <button onClick={() => setCoin("ETH")}>Etherium</button><span>{appdata.user && appdata.user.wallet.eth && appdata.user.wallet.eth.balance}</span>
                         <button onClick={() => setCoin("TRX")}>TRX</button><span>{appdata.user && appdata.user.wallet.trx && appdata.user.wallet.trx.balance}</span>
                         <button onClick={() => setCoin("USDT")}>USDT</button><span>{appdata.user && appdata.user.wallet.usdt && appdata.user.wallet.usdt.balance}</span>
