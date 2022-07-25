@@ -115,6 +115,7 @@ export const Wallet = ({ db }) => {
                                     setWalletAddress(wallet)
                                 }}>Generate Wallet</button>
                                 <input id="reciving-address" type="text" placeholder="Wallet Address" disabled value={walletAddress} />
+                                <span>This is your permanent deposit address.</span>
                             </div>
                         </div>
                     </div>
