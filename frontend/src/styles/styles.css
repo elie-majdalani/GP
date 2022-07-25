@@ -304,6 +304,13 @@
 .wallet-body-content-compare{
     margin: 0px 10px;
 }
+.wallet-body-content-address{
+    width: 95%;
+    margin-top: 30px;
+}
+#reciving-address{
+    min-width: 100%;
+}
 
 /* wallet sidenav */
 .wallet-sidenav{
