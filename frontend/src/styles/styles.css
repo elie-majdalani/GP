@@ -301,3 +301,24 @@
     font-weight: 600;
     padding-left: 10%;
 }
+
+/* wallet sidenav */
+.wallet-sidenav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wallet-sidenav-header-title{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.wallet-sidenav{
+    font-family: 'Roboto', sans-serif;
+}
+.wallet-sidenav-coin button{
+    background-color: white;
+    padding: 0;
+    border: none;
+}

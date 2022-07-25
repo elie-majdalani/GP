@@ -64,7 +64,7 @@ export const Wallet = ({ db }) => {
                     <div className="wallet-sidenav">
                         <div className="wallet-sidenav-header">
                             <div className="wallet-sidenav-header-title">
-                                <h1>Wallet</h1>
+                                <h1>Coins</h1>
                             </div>
                             <div className="wallet-sidenav-header-hr">
                                 <hr />
