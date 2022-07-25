@@ -324,3 +324,7 @@
     font-size: 18px;
     font-weight: 500;
 }
+.wallet-sidenav-coin button:hover{
+    background-color: #CBAC08;
+    color: white;
+}
