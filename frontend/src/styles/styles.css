@@ -208,6 +208,8 @@
 #sidenav-section-2 a{
     text-decoration: none;
     color: white;
+    font-size: 18px;
+    margin-bottom: 15px;
 }
 
 #sidenav-section-1 span,
@@ -224,8 +226,10 @@
 #sidenav-footer a{
     text-decoration: none;
     color: white;
+    font-size: 20px;
 }
 .sidenav-title{
+    font-size: 20px;
     font-weight: 600;
 }
 #sidenav-title-2{
