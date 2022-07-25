@@ -216,4 +216,12 @@
 }
 #sidenav-footer{
     margin-bottom: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidenav-footer a{
+    text-decoration: none;
+    color: white;
 }
