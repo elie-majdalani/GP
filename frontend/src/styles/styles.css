@@ -267,6 +267,7 @@
     margin-top: 50px;
     font-size: 18px;
     padding-left: 5%;
+    padding-right: 5%;
 }
 .wallet-body-content span{
     margin-bottom: 25px;
@@ -290,4 +291,13 @@
 
 .wallet-body-content-warning{
     text-align: center;
+}
+
+.wallet-body-header-hr{
+    padding: 0px 5%;
+}
+.wallet-body-header-title{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 10%;
 }
