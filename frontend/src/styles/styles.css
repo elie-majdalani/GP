@@ -126,6 +126,7 @@
 }
 
 /* input fields section */
+.wallet-body-content input,
 .signup-section-div input,
 .login-section-div input{
     padding: 16px 20px;
