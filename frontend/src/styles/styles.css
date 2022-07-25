@@ -261,6 +261,10 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
+    margin-top: 50px;
+}
+.wallet-body-content span{
+    margin-bottom: 25px;
 }
 
 .wallet-body-content-usd,
@@ -276,4 +280,5 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
+    margin-top: 50px;
 }
