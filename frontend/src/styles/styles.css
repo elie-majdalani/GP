@@ -124,6 +124,11 @@
     color: #ffffff;
     border: 2px solid #ffffff;
 }
+#main-btn:hover,
+.main-btn:hover{
+    background-color: #CBAC08;
+    color: #000000;
+}
 
 /* input fields section */
 .wallet-body-content input,
