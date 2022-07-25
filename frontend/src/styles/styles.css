@@ -256,6 +256,13 @@
 }
 
 /* wallet section */
+.wallet-body-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
 .wallet-body-content-usd,
 .wallet-body-content-coin,
 .wallet-body-content-address{
