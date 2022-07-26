@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAppContext } from '../components/userContext';
 import { Table } from "../components/Table";
 import { Charts } from "../components/Charts";
-import { Modal } from "../components/Modal";
+
 
 
 export const Records = () => {
@@ -79,10 +79,8 @@ export const Records = () => {
             {isCharts ?
                 (<Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth} />)
                 :
-                (<div>
-                    <button onClick={() => setShow(true)}>Show Modal</button>
-                    <Modal onClose={() => setShow(false)} show={show} setAdd={setAdd} />
-                    <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} />
+                (<div>   
+                    <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} setShow={setShow} show={show} setAdd={setAdd}/>
                 </div>)}
         </div>
     )

@@ -1,5 +1,6 @@
 import { UserInfo } from "../components/userInfo";
-export const Table = ({ totalRevenue, totalExpense, data }) => {
+import { Modal } from "../components/Modal";
+export const Table = ({ totalRevenue, totalExpense, data, show, setShow,setAdd}) => {
     return (
         <div>
             <div className="wallet-body-header">
@@ -14,7 +15,8 @@ export const Table = ({ totalRevenue, totalExpense, data }) => {
                 <UserInfo />
 
             </div>
-
+            <button onClick={() => setShow(true)}>Show Modal</button>
+            <Modal onClose={() => setShow(false)} show={show} setAdd={setAdd} />
 
             <h1>Total Revenue: {totalRevenue}</h1>
             <h1>Total Expense: {totalExpense}</h1>
