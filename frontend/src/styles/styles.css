@@ -347,6 +347,9 @@ width: 100%;
     flex-direction: column;
     align-items: center;
 }
+.wallet-sidenav-header{
+    width:100%;
+}
 
 .wallet-sidenav-header-title{
     font-size: 16px;
