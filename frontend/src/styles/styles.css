@@ -537,6 +537,13 @@ main {
     height: 25px;
 }
 /* expences and revenue */
+.expences-body-content{
+    min-width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
 .expences-body-content-section-1 {
     display: flex;
     flex-direction: row;
