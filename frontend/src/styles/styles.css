@@ -485,10 +485,11 @@ background-image: url(../assets/shutdown.png);
   .expences-body-content-section-1{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
   }
+  .Inputs-modal-btn-div,
   .date-selection-div{
     display: flex;
     justify-content: center;
@@ -499,5 +500,11 @@ background-image: url(../assets/shutdown.png);
   .date-selection-div,
   .Inputs-modal-btn-div{
     width: 50%;
+    background-color: #F5F5F5;
+  }
+  .Inputs-modal-btn-div,
+  .date-selection-div{
+    width: 50%;
+    margin: 0px 5%;
     background-color: #F5F5F5;
   }
