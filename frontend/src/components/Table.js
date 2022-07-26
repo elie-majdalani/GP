@@ -49,13 +49,13 @@ export const Table = ({ data, show, setShow, setAdd }) => {
             </div>
             <div className="expences-body-content">
                 <div className="expences-body-content-section-1">
-                    <div className="Inputs-modal-btn-div">
-                        <button onClick={() => setShow(true)}>Input</button>
+                    <div className="inputs-modal-btn-div">
+                        <button className="selections" onClick={() => setShow(true)}>Input</button>
                         <Modal onClose={() => setShow(false)} show={show} setAdd={setAdd} />
                     </div>
                     <div className="date-selection-div">
                         <div className="date-selection-div-year">
-                            <select value={chartYear} onChange={(e) => { setChartYear(e.target.value) }}>
+                            <select className="selections" value={chartYear} onChange={(e) => { setChartYear(e.target.value) }}>
                                 {Array.from(Array(new Date().getFullYear() - oldest.getFullYear() + 1).keys()).map(item => {
                                     return (
                                         <option key={item} value={item + oldest.getFullYear()}>{item + oldest.getFullYear()}</option>
@@ -65,7 +65,7 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                             </select>
                         </div>
                         <div className="date-selection-div-month">
-                            <select value={month} onChange={(e) => { setMonth(e.target.value) }}>
+                            <select className="selections" value={month} onChange={(e) => { setMonth(e.target.value) }}>
                                 {Array.from(Array(12).keys()).map(item => {
                                     return (
                                         <option key={item} value={item + 1}>{months[item]}</option>

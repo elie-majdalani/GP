@@ -527,7 +527,14 @@ main {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
-
+/* selections */
+.selections {
+    width: 150px;
+    text-align: center;
+    border-radius: 50px;
+    border-color: black;
+    border-width: 2px;
+}
 /* expences and revenue */
 .expences-body-content-section-1 {
     display: flex;
@@ -537,7 +544,7 @@ main {
     align-items: center;
 }
 
-.Inputs-modal-btn-div,
+.inputs-modal-btn-div,
 .date-selection-div {
     display: flex;
     justify-content: center;
@@ -547,12 +554,12 @@ main {
 }
 
 .date-selection-div,
-.Inputs-modal-btn-div {
+.inputs-modal-btn-div {
     width: 50%;
     background-color: #F5F5F5;
 }
 
-.Inputs-modal-btn-div,
+.inputs-modal-btn-div,
 .date-selection-div {
     width: 50%;
     margin: 0px 5%;
@@ -572,3 +579,4 @@ main {
     height: 60px;
     border-radius: 10px;
 }
+
