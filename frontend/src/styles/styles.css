@@ -388,6 +388,9 @@ width: 100%;
 .user-info{
     margin-top: 20px;
 }
+.wallet-sidenav .user-info{
+    width:100%;
+}
 .expences-body-header .user-info{
     width:20%;
 }
