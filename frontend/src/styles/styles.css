@@ -699,6 +699,14 @@ main {
     margin-bottom: 10px;
 }
 
-#table td {
+#table td,
+#table th {
     text-align: center;
+    padding: 5px;
+
+}
+
+#table, th, td {
+    border: 1px solid #b8b6b6;
+    border-collapse: collapse;
 }
