@@ -534,6 +534,7 @@ main {
     border-radius: 50px;
     border-color: black;
     border-width: 2px;
+    height: 25px;
 }
 /* expences and revenue */
 .expences-body-content-section-1 {
@@ -580,3 +581,7 @@ main {
     border-radius: 10px;
 }
 
+#input-btn{
+    background-color: #ffffff;
+    width: 250px;
+}

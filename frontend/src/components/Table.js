@@ -50,7 +50,7 @@ export const Table = ({ data, show, setShow, setAdd }) => {
             <div className="expences-body-content">
                 <div className="expences-body-content-section-1">
                     <div className="inputs-modal-btn-div">
-                        <button className="selections" onClick={() => setShow(true)}>Input</button>
+                        <button className="selections" id="input-btn" onClick={() => setShow(true)}>Input</button>
                         <Modal onClose={() => setShow(false)} show={show} setAdd={setAdd} />
                     </div>
                     <div className="date-selection-div">
