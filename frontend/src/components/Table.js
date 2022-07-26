@@ -80,7 +80,7 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                     <div className="total-revenue-div">
                         <h1>Total Revenue: {totalRevenue}</h1>
                     </div>
-                    <div className="total-expense-div">
+                    <div className="total-expences-div">
                         <h1>Total Expense: {totalExpense}</h1>
                     </div>
                     <div className="total-profit-div">

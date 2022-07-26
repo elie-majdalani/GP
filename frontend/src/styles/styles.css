@@ -608,3 +608,10 @@ main {
     align-items: center;
     justify-content: center;
 }
+
+.total-revenue-div,
+.total-expences-div,
+.total-profit-div{
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
