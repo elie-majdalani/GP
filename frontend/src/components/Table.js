@@ -80,23 +80,23 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                     <div className="total-revenue-div">
                         <div className="total-div-title">
                             <button className="total-btn" id="total-btn-blue"></button>
-                            <h3>Total Revenue: </h3>
+                            <span>Total Revenue: </span>
                         </div>
-                        <h1>{totalRevenue}</h1>
+                        <span className="total-div-number">{totalRevenue} $</span>
                     </div>
                     <div className="total-expences-div">
                         <div className="total-div-title">
                             <button className="total-btn" id="total-btn-red"></button>
-                            <h3>Total Expense: </h3>
+                            <span>Total Expense: </span>
                         </div>
-                        <h1>{totalExpense}</h1>
+                        <span className="total-div-number">{totalExpense} $</span>
                     </div>
                     <div className="total-profit-div">
                         <div className="total-div-title">
                             <button className="total-btn" id="total-btn-green"></button>
-                            <h3>Total Profit: </h3>
+                            <span>Total Profit: </span>
                         </div>
-                        <h1>{totalRevenue - totalExpense}</h1>
+                        <span className="total-div-number">{totalRevenue - totalExpense} $</span>
                     </div>
                 </div>
                 <div className="table-div">
