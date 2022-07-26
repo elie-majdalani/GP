@@ -1,17 +1,19 @@
-body{
+body {
     font-family: 'Roboto', sans-serif;
 }
-main{
+
+main {
     width: 100%;
 }
+
 /* home page */
 
-.hero-home-div{
+.hero-home-div {
     display: flex;
     justify-content: space-between;
 }
 
-.left-home-main-div{
+.left-home-main-div {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -20,21 +22,23 @@ main{
     padding-bottom: 35px;
 }
 
-#home-gp{
+#home-gp {
     margin-top: 15px;
     margin-bottom: 25px;
 }
-#home-laptop{
+
+#home-laptop {
     max-width: 60%;
 }
-#home-left-title{
+
+#home-left-title {
     font-family: 'Roboto', sans-serif;
     font-style: regular;
     font-size: 32px;
     text-align: center;
 }
 
-#home-left-subtitle{
+#home-left-subtitle {
     font-family: 'Roboto', sans-serif;
     font-style: regular;
     font-size: 18px;
@@ -42,7 +46,7 @@ main{
     max-width: 50%;
 }
 
-.right-home-main-div{
+.right-home-main-div {
     width: 50%;
     height: 100vh;
     background-color: #000000;
@@ -51,13 +55,15 @@ main{
     justify-content: flex-start;
     align-items: center;
 }
-.right-home-main-div span{
+
+.right-home-main-div span {
     font-family: 'Roboto', sans-serif;
     font-style: regular;
     text-align: center;
     color: #ffffff;
 }
-.home-right-main-titles{
+
+.home-right-main-titles {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,35 +72,40 @@ main{
     margin-bottom: 250px;
 }
 
-#home-right-main-title{
+#home-right-main-title {
     font-size: 34px;
     max-width: 80%;
 }
-#home-right-main-title-coin{
+
+#home-right-main-title-coin {
     font-size: 38px;
     color: #CBAC08;
 }
-#home-right-tile{
+
+#home-right-tile {
     font-family: 'Roboto', sans-serif;
     font-style: regular;
     font-size: 32px;
     text-align: center;
 }
-.home-buttons-div{
+
+.home-buttons-div {
     margin-top: 15px;
     margin-bottom: 25px;
     font-size: 15px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
-.home-buttons-div a{
+
+.home-buttons-div a {
     text-decoration: none;
 }
-.home-buttons-div #signup-btn{
+
+.home-buttons-div #signup-btn {
     color: #CBAC08;
 }
 
-#home-right-subtitle{
+#home-right-subtitle {
     font-family: 'Roboto', sans-serif;
     font-style: regular;
     font-size: 18px;
@@ -102,22 +113,25 @@ main{
     justify-content: center;
 
 }
-.home-buttons-div{
+
+.home-buttons-div {
     width: 80%;
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap;
     margin: 43px 0px;
 }
-.home-buttons-div a{
+
+.home-buttons-div a {
     background-color: white;
     border-radius: 50px;
     padding: 5px 40px;
     margin-right: 25px;
 }
+
 /* main btns section */
 #main-btn,
-.main-btn{
+.main-btn {
     padding: 16px 28px;
     text-transform: uppercase;
     font-size: 12px;
@@ -131,8 +145,9 @@ main{
     color: #ffffff;
     border: 2px solid #ffffff;
 }
+
 #main-btn:hover,
-.main-btn:hover{
+.main-btn:hover {
     background-color: #CBAC08;
     color: #000000;
 }
@@ -140,7 +155,7 @@ main{
 /* input fields section */
 .wallet-body-content input,
 .signup-section-div input,
-.login-section-div input{
+.login-section-div input {
     padding: 16px 20px;
     border: 2px solid #000000;
     box-sizing: border-box;
@@ -154,23 +169,25 @@ main{
 
 /* login and signup pages */
 .signup-page-header-div,
-.login-page-header-div{
+.login-page-header-div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 .signup-section-div,
-.login-section-div{
+.login-section-div {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 50px;
 }
+
 .signup-section-div h1,
-.login-section-div h1{
+.login-section-div h1 {
     font-style: regular;
     font-size: 32px;
     text-align: center;
@@ -181,15 +198,18 @@ main{
     text-decoration: none;
     color: #CBAC08;
 }
+
 .signup-section-div span,
-.login-section-div span{
+.login-section-div span {
     margin-top: 10px;
 }
-.login-section-div #or{
+
+.login-section-div #or {
     font-weight: 600;
 }
+
 /* sidenav */
-#sidenav{
+#sidenav {
     background-color: black;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
@@ -201,32 +221,34 @@ main{
     min-height: 100vh;
 }
 
-.sidenav-divider{
+.sidenav-divider {
     max-width: 85%;
 }
-#sidenav-header-logo{
+
+#sidenav-header-logo {
     margin-top: 10%;
 }
 
 #sidenav-header-logo,
 #sidenav-section-1,
 #sidenav-section-2,
-#sidenav-footer{
+#sidenav-footer {
     padding-left: 10%;
 }
-#sidenav-section-1{
+
+#sidenav-section-1 {
     margin-top: 10%;
 }
 
 #sidenav-section-1,
-#sidenav-section-2{
+#sidenav-section-2 {
     display: flex;
     flex-direction: column;
     margin-bottom: 30%;
 }
 
 #sidenav-section-1 a,
-#sidenav-section-2 a{
+#sidenav-section-2 a {
     text-decoration: none;
     color: white;
     font-size: 18px;
@@ -235,45 +257,50 @@ main{
 }
 
 #sidenav-section-1 span,
-#sidenav-section-2 span{
+#sidenav-section-2 span {
     margin: 5% 0px;
 }
-#sidenav-footer{
+
+#sidenav-footer {
     margin-bottom: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#sidenav-footer a{
+#sidenav-footer a {
     text-decoration: none;
     color: white;
     font-size: 20px;
 }
-.sidenav-title{
+
+.sidenav-title {
     font-size: 20px;
     font-weight: 600;
 }
-#sidenav-title-2{
+
+#sidenav-title-2 {
     color: #CBAC08;
 }
 
 /* layout section */
-.layout{
+.layout {
     width: 17%;
 
 }
-.main-wrapper-div{
+
+.main-wrapper-div {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
 /* wallet section */
-.wallet-body{
+.wallet-body {
     width: 100%;
 }
-.wallet-body-content{
+
+.wallet-body-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -283,19 +310,21 @@ main{
     padding-left: 5%;
     padding-right: 5%;
 }
-.wallet-body-content span{
+
+.wallet-body-content span {
     margin-bottom: 25px;
 }
 
 .wallet-body-content-usd,
 .wallet-body-content-coin,
-.wallet-body-content-address{
+.wallet-body-content-address {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
 }
-.wallet-body-content-calculation-div{
+
+.wallet-body-content-calculation-div {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -303,33 +332,38 @@ main{
     margin-top: 50px;
 }
 
-.wallet-body-content-warning{
+.wallet-body-content-warning {
     text-align: center;
 }
 
-.wallet-body-header-hr{
+.wallet-body-header-hr {
     padding: 0px 5%;
 }
-.wallet-body-header-title{
+
+.wallet-body-header-title {
     font-size: 20px;
     font-weight: 600;
     padding-left: 10%;
 }
-.wallet-body-header-title-wrapper{
-width: 100%;
+
+.wallet-body-header-title-wrapper {
+    width: 100%;
 }
-.wallet-body-content-compare{
+
+.wallet-body-content-compare {
     margin: 0px 10px;
 }
-.wallet-body-content-address{
+
+.wallet-body-content-address {
     width: 95%;
     margin-top: 30px;
 }
-#reciving-address{
+
+#reciving-address {
     min-width: 100%;
 }
 
-.wallet-body-content-genrate{
+.wallet-body-content-genrate {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -337,33 +371,36 @@ width: 100%;
     flex-wrap: nowrap;
     width: 95%;
 }
-#reciving-address{
+
+#reciving-address {
     margin-top: 30px;
 }
 
 /* wallet sidenav */
-.wallet-sidenav{
+.wallet-sidenav {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.wallet-sidenav-header{
-    width:100%;
+
+.wallet-sidenav-header {
+    width: 100%;
 }
 
-.wallet-sidenav-header-title{
+.wallet-sidenav-header-title {
     font-size: 16px;
     font-weight: 500;
 }
 
-.wallet-sidenav{
+.wallet-sidenav {
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 20%;
 }
-.wallet-sidenav-coin button{
+
+.wallet-sidenav-coin button {
     background-color: white;
     padding: 10px;
     border: none;
@@ -371,57 +408,67 @@ width: 100%;
     font-weight: 500;
     margin-left: 10px;
 }
-.wallet-sidenav-coin button:hover{
+
+.wallet-sidenav-coin button:hover {
     background-color: #CBAC08;
     color: white;
     border-radius: 8px;
 }
-.wallet-sidenav-coin span{
+
+.wallet-sidenav-coin span {
     margin-left: 20px;
 }
-.wallet-sidenav-coin{
+
+.wallet-sidenav-coin {
     margin: 20px 0;
 }
-.wallet-body-wrapper{
+
+.wallet-body-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
-.user-info{
+.user-info {
     margin-top: 20px;
 }
-.wallet-sidenav .user-info{
-    width:100%;
+
+.wallet-sidenav .user-info {
+    width: 100%;
 }
-.expences-body-header .user-info{
-    width:20%;
+
+.expences-body-header .user-info {
+    width: 20%;
 }
-#user-name{
+
+#user-name {
     font-size: 20px;
     font-weight: 600;
     margin-left: 10px;
     margin-right: 20px;
 }
-.user-info-header{
+
+.user-info-header {
     display: flex;
     align-items: center;
 }
-.user-info hr{
+
+.user-info hr {
     margin-top: 27px;
 }
-#logout-btn{
-background-image: url(../assets/shutdown.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-color: #ffffff;
-  height: 48px;
-  width: 48px;
-  border: none;
+
+#logout-btn {
+    background-image: url(../assets/shutdown.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: #ffffff;
+    height: 48px;
+    width: 48px;
+    border: none;
 }
 
 .expences-body-header,
-.wallet-body-header{
+.wallet-body-header {
     display: flex;
     justify-content: space-between;
 }
@@ -440,78 +487,88 @@ background-image: url(../assets/shutdown.png);
     opacity: 0;
     transition: all 0.3s ease-in-out;
     pointer-events: none;
-  }
-  
-  .modal.enter-done {
+}
+
+.modal.enter-done {
     opacity: 1;
     pointer-events: visible;
-  }
-  
-  .modal.exit {
+}
+
+.modal.exit {
     opacity: 0;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     width: 500px;
     background-color: #fff;
     transition: all 0.3s ease-in-out;
     transform: translateY(-200px);
-  }
-  
-  .modal.enter-done .modal-content {
+}
+
+.modal.enter-done .modal-content {
     transform: translateY(0);
-  }
-  
-  .modal.exit .modal-content {
+}
+
+.modal.exit .modal-content {
     transform: translateY(-200px);
-  }
-  
-  .modal-header,
-  .modal-footer {
+}
+
+.modal-header,
+.modal-footer {
     padding: 10px;
-  }
-  
-  .modal-title {
+}
+
+.modal-title {
     margin: 0;
-  }
-  
-  .modal-body {
+}
+
+.modal-body {
     padding: 10px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
-  }
-  
-  /* expences and revenue */
-  .expences-body-content-section-1{
+}
+
+/* expences and revenue */
+.expences-body-content-section-1 {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-  }
-  .Inputs-modal-btn-div,
-  .date-selection-div{
+}
+
+.Inputs-modal-btn-div,
+.date-selection-div {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-  }
-  .date-selection-div,
-  .Inputs-modal-btn-div{
+}
+
+.date-selection-div,
+.Inputs-modal-btn-div {
     width: 50%;
     background-color: #F5F5F5;
-  }
-  .Inputs-modal-btn-div,
-  .date-selection-div{
+}
+
+.Inputs-modal-btn-div,
+.date-selection-div {
     width: 50%;
     margin: 0px 5%;
     background-color: #F5F5F5;
-  }
-  .date-selection-div{
+}
+
+.date-selection-div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-  }
+}
+
+.inputs-modal-btn-div,
+.date-selection-div {
+    height: 60px;
+    border-radius: 10px;
+}
