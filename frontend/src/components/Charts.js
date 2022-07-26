@@ -4,7 +4,17 @@ import { UserInfo } from "../components/userInfo";
 export const Charts = ({setYear,oldest,year,totalRevenue,totalExpense,chartYear,months,month,monthsExpense,monthsRevenue,setChartYear,setMonth}) => {
     return(
         <div>
-            <UserInfo />
+            <div className="expences-body-header">
+                <div className="wallet-body-header-title-wrapper">
+                    <div className="wallet-body-header-title">
+                        <h1>Expences & Revenue</h1>
+                    </div>
+                    <div className="wallet-body-header-hr">
+                        <hr />
+                    </div>
+                </div>
+                <UserInfo />
+            </div>
             <select value={year} onChange={(e) => { setYear(e.target.value) }}>
                 {Array.from(Array(new Date().getFullYear() - oldest.getFullYear() + 1).keys()).map(item => {
                     return (
