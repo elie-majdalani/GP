@@ -270,6 +270,9 @@ main{
 }
 
 /* wallet section */
+.wallet-body{
+    width: 100%;
+}
 .wallet-body-content{
     display: flex;
     flex-direction: column;
