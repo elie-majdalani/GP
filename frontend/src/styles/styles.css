@@ -387,3 +387,12 @@
 .user-info hr{
     margin-top: 55px;
 }
+#logout-btn{
+background-image: url(../assets/shutdown.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: #ffffff;
+  height: 48px;
+  width: 48px;
+  border: none;
+}
