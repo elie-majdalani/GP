@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import { AddRecord } from "./AddRecord";
-import "../styles/modal.css";
+
 
 export const Modal = (props) => {
   return ReactDOM.createPortal(
