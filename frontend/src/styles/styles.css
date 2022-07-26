@@ -496,3 +496,8 @@ background-image: url(../assets/shutdown.png);
     flex-direction: row;
     flex-wrap: wrap;
   }
+  .date-selection-div,
+  .Inputs-modal-btn-div{
+    width: 50%;
+    background-color: #F5F5F5;
+  }
