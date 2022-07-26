@@ -1,6 +1,8 @@
+import { UserInfo } from "../components/userInfo";
 export const Table = ({totalRevenue,totalExpense,data}) => {
     return(
         <div>
+            <UserInfo />
             <h1>Total Revenue: {totalRevenue}</h1>
             <h1>Total Expense: {totalExpense}</h1>
             <h1>Total Profit: {totalRevenue-totalExpense}</h1>

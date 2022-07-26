@@ -15,12 +15,8 @@ export const Layout = ({ children }) => {
                     <SideNav setIsMessages={setIsMessages} isMessages={isMessages} />
                 </div>
                 <main>{children}</main>
-                <div className="user-info">
-                    <span>{appdata.user.displayName}</span>
-                    <button onClick={() => { appdata.setUser(); localStorage.clear(); window.location.href = '/login' }}>Logout</button>
-                    {isMessages &&
+                {isMessages &&
                     <UserChannel user={appdata.user} db={db} />}
-                </div>
             </div>
         ) : (
             <div>

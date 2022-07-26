@@ -1,9 +1,10 @@
 import DoughnutChart from './DoughnutChart';
 import BarChart from "./BarChart";
-
+import { UserInfo } from "../components/userInfo";
 export const Charts = ({setYear,oldest,year,totalRevenue,totalExpense,chartYear,months,month,monthsExpense,monthsRevenue,setChartYear,setMonth}) => {
     return(
         <div>
+            <UserInfo />
             <select value={year} onChange={(e) => { setYear(e.target.value) }}>
                 {Array.from(Array(new Date().getFullYear() - oldest.getFullYear() + 1).keys()).map(item => {
                     return (

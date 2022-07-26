@@ -3,6 +3,7 @@ import { Deposit } from "../components/deposit";
 import { useAppContext } from '../components/userContext';
 import { useState, useEffect } from "react";
 import compare from '../assets/compare.png';
+import { UserInfo } from "../components/userInfo";
 
 export const Wallet = ({ db }) => {
     const appdata = useAppContext();
@@ -62,6 +63,7 @@ export const Wallet = ({ db }) => {
                     </div>
 
                     <div className="wallet-sidenav">
+                        <UserInfo />
                         <div className="wallet-sidenav-header">
                             <div className="wallet-sidenav-header-title">
                                 <h1>Coins</h1>
@@ -121,6 +123,7 @@ export const Wallet = ({ db }) => {
                     </div>
 
                     <div className="wallet-sidenav">
+                        <UserInfo />
                         <div className="wallet-sidenav-header">
                             <div className="wallet-sidenav-header-title">
                                 <h1>Coins</h1>
