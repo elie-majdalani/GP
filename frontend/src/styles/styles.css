@@ -383,9 +383,12 @@
     margin-left: 10px;
     margin-right: 20px;
 }
-
+.user-info-header{
+    display: flex;
+    align-items: center;
+}
 .user-info hr{
-    margin-top: 55px;
+    margin-top: 27px;
 }
 #logout-btn{
 background-image: url(../assets/shutdown.png);
