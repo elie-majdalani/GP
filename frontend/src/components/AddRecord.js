@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAppContext } from './userContext';
 import axios from "axios";
 
-export const AddRecord = ({setAdd}) => {
+export const AddRecord = ({onClose,setAdd}) => {
     const appdata = useAppContext();
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
@@ -35,7 +35,7 @@ export const AddRecord = ({setAdd}) => {
                 <option value="true">Revenue</option>
                 <option value="false">Expense</option>
             </select>
-            <button onClick={handleSubmit}>Add</button>
+            <button onClick={()=>{handleSubmit();onClose()}}>Add</button>
 
         </div>
     )
