@@ -2,7 +2,19 @@ import { UserInfo } from "../components/userInfo";
 export const Table = ({totalRevenue,totalExpense,data}) => {
     return(
         <div>
-            <UserInfo />
+            <div className="wallet-body-header">
+                            <div className="wallet-body-header-title">
+                                <h1>Expences & Revenue</h1>
+                            </div>
+
+                            <UserInfo />
+
+                            <div className="wallet-body-header-hr">
+                                <hr />
+                            </div>
+                        </div>
+            
+        
             <h1>Total Revenue: {totalRevenue}</h1>
             <h1>Total Expense: {totalExpense}</h1>
             <h1>Total Profit: {totalRevenue-totalExpense}</h1>
