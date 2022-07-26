@@ -489,3 +489,10 @@ background-image: url(../assets/shutdown.png);
     justify-content: space-between;
     align-items: center;
   }
+  .date-selection-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
