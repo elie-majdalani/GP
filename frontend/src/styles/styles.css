@@ -593,3 +593,18 @@ main {
     background-color: #ffffff;
     width: 250px;
 }
+
+.expences-body-content-section-2{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.table-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
