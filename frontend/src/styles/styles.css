@@ -270,9 +270,6 @@ main{
 }
 
 /* wallet section */
-.wallet-body{
-    font-family: 'Roboto', sans-serif;
-}
 .wallet-body-content{
     display: flex;
     flex-direction: column;

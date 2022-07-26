@@ -27,11 +27,13 @@ export const Wallet = ({ db }) => {
                 (<div className="wallet-body-wrapper">
                     <div className="wallet-body">
                         <div className="wallet-body-header">
-                            <div className="wallet-body-header-title">
-                                <h1>Wallet</h1>
-                            </div>
-                            <div className="wallet-body-header-hr">
-                                <hr />
+                            <div className="wallet-body-header-title-wrapper">
+                                <div className="wallet-body-header-title">
+                                    <h1>Wallet</h1>
+                                </div>
+                                <div className="wallet-body-header-hr">
+                                    <hr />
+                                </div>
                             </div>
                         </div>
                         <div className="wallet-body-content">
@@ -94,11 +96,13 @@ export const Wallet = ({ db }) => {
                 (<div className="wallet-body-wrapper">
                     <div className="wallet-body">
                         <div className="wallet-body-header">
-                            <div className="wallet-body-header-title">
-                                <h1>Wallet</h1>
-                            </div>
-                            <div className="wallet-body-header-hr">
-                                <hr />
+                            <div className="wallet-body-header-title-wrapper">
+                                <div className="wallet-body-header-title">
+                                    <h1>Wallet</h1>
+                                </div>
+                                <div className="wallet-body-header-hr">
+                                    <hr />
+                                </div>
                             </div>
                         </div>
                         <div className="wallet-body-content">
