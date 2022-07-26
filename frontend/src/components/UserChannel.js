@@ -32,7 +32,6 @@ const UserChannel = ({ db = null }) => {
     }
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        debugger
         if (db && appData.user) {
             db.collection('messages').add({
                 text: newMessage,

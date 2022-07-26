@@ -101,7 +101,7 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                 </div>
                 <div className="table-div-wrapper">
                     <div className="table-div">
-                        <table>
+                        <table id="table">
                             <thead>
                                 <tr>
                                     <th>Name</th>
