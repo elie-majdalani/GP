@@ -508,3 +508,10 @@ background-image: url(../assets/shutdown.png);
     margin: 0px 5%;
     background-color: #F5F5F5;
   }
+  .date-selection-div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
