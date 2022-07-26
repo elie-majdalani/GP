@@ -24,7 +24,7 @@ export const Wallet = ({ db }) => {
     return (
         <div>
             {!isDeposit ?
-                (<div>
+                (<div className="wallet-body-wrapper">
                     <div className="wallet-body">
                         <div className="wallet-body-header">
                             <div className="wallet-body-header-title">
@@ -91,7 +91,7 @@ export const Wallet = ({ db }) => {
                     </div>
                 </div>)
                 :
-                (<div>
+                (<div className="wallet-body-wrapper">
                     <div className="wallet-body">
                         <div className="wallet-body-header">
                             <div className="wallet-body-header-title">

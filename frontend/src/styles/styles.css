@@ -369,3 +369,8 @@
 .wallet-sidenav-coin{
     margin: 20px 0;
 }
+.wallet-body-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
