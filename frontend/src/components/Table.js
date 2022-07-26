@@ -1,6 +1,39 @@
 import { UserInfo } from "../components/userInfo";
 import { Modal } from "../components/Modal";
-export const Table = ({ totalRevenue, totalExpense, data, show, setShow, setAdd }) => {
+import { useEffect, useState } from "react";
+export const Table = ({ data, show, setShow, setAdd }) => {
+    const [oldest, setOldest] = useState(new Date());
+    const [tableData, setTableData] = useState([]);
+    const [month, setMonth] = useState(new Date().getMonth() + 1);
+    const [chartYear, setChartYear] = useState(new Date().getFullYear());
+    const [totalExpense, setTotalExpense] = useState(0);
+    const [totalRevenue, setTotalRevenue] = useState(0);
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    useEffect(() => {
+        let revenue = 0
+        let expense = 0
+        if (tableData) {
+            tableData.forEach((item) => {
+                const date = item.createdAt
+                const defaultDate = new Date(date.split('T'))
+
+                if (defaultDate.getFullYear() < oldest.getFullYear()) {
+                    setOldest(defaultDate)
+                }
+
+                if (defaultDate.getFullYear() === parseInt(chartYear) && defaultDate.getMonth() + 1 === parseInt(month)) {
+                    if (item.type) {
+                        revenue = revenue + item.amount
+                    } else {
+                        expense = expense + item.amount
+                    }
+                }
+            })
+        }
+        setTotalExpense(expense)
+        setTotalRevenue(revenue)
+    }, [tableData, chartYear, month])
+    useEffect(() => { setTableData(data) }, [data])
     return (
         <div>
             <div className="expences-body-header">
@@ -16,9 +49,25 @@ export const Table = ({ totalRevenue, totalExpense, data, show, setShow, setAdd 
             </div>
             <div className="expences-body-content">
                 <div className="Inputs-modal-btn-div">
-                    <button onClick={() => setShow(true)}>Show Modal</button>
+                    <button onClick={() => setShow(true)}>Input</button>
                     <Modal onClose={() => setShow(false)} show={show} setAdd={setAdd} />
                 </div>
+                <select value={chartYear} onChange={(e) => { setChartYear(e.target.value) }}>
+                    {Array.from(Array(new Date().getFullYear() - oldest.getFullYear() + 1).keys()).map(item => {
+                        return (
+                            <option key={item} value={item + oldest.getFullYear()}>{item + oldest.getFullYear()}</option>
+                        )
+                    }
+                    )}
+                </select>
+                <select value={month} onChange={(e) => { setMonth(e.target.value) }}>
+                    {Array.from(Array(12).keys()).map(item => {
+                        return (
+                            <option key={item} value={item + 1}>{months[item]}</option>
+                        )
+                    }
+                    )}
+                </select>
                 <div className="total-revenue-div">
                     <h1>Total Revenue: {totalRevenue}</h1>
                 </div>
@@ -41,19 +90,25 @@ export const Table = ({ totalRevenue, totalExpense, data, show, setShow, setAdd 
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map(item => {
+                            {tableData.map(item => {
                                 const date = item.createdAt
                                 const defaultDate = new Date(date.split('T'))
-                                return (
-                                    <tr key={item._id}>
-                                        <td>{item.name}</td>
-                                        <td>{item.category}</td>
-                                        <td>{item.discription}</td>
-                                        <td>{item.amount}</td>
-                                        <td>{item.type ? 'Revenue' : 'Expense'}</td>
-                                        <td>{defaultDate.getDate() + "-" + parseInt(defaultDate.getMonth() + 1) + "-" + defaultDate.getFullYear()}</td>
-                                    </tr>
-                                )
+                                if (defaultDate.getFullYear() < oldest.getFullYear()) {
+                                    setOldest(defaultDate)
+                                }
+
+                                if (defaultDate.getFullYear() === parseInt(chartYear) && defaultDate.getMonth() + 1 === parseInt(month)) {
+                                    return (
+                                        <tr key={item._id}>
+                                            <td>{item.name}</td>
+                                            <td>{item.category}</td>
+                                            <td>{item.discription}</td>
+                                            <td>{item.amount}</td>
+                                            <td>{item.type ? 'Revenue' : 'Expense'}</td>
+                                            <td>{defaultDate.getDate() + "-" + parseInt(defaultDate.getMonth() + 1) + "-" + defaultDate.getFullYear()}</td>
+                                        </tr>
+                                    )
+                                }
                             }
                             )}
                         </tbody>

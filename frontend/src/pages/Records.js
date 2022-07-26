@@ -80,7 +80,7 @@ export const Records = () => {
                 (<Charts setYear={setYear} oldest={oldest} year={year} totalRevenue={totalRevenue} totalExpense={totalExpense} chartYear={chartYear} months={months} month={month} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} setChartYear={setChartYear} setMonth={setMonth} />)
                 :
                 (<div>   
-                    <Table data={data} totalExpense={totalExpense} totalRevenue={totalRevenue} setShow={setShow} show={show} setAdd={setAdd}/>
+                    <Table data={data} setShow={setShow} show={show} setAdd={setAdd}/>
                 </div>)}
         </div>
     )
