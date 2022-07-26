@@ -579,11 +579,11 @@ main {
 }
 
 .inputs-modal-btn-div {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .date-selection-div {
-    margin-right: 20px;
+    margin-left: 10px;
 }
 
 .date-selection-div {
@@ -609,10 +609,10 @@ main {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-top: 20px;
+    justify-content: space-between;
 }
 
 .table-div {
@@ -629,11 +629,15 @@ main {
     background-color: #F5F5F5;
     height: 100px;
     border-radius: 10px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+}
+.total-expences-div{
+    margin: 0px 20px;
 }
 
 .total-btn {
@@ -662,4 +666,8 @@ main {
     align-items: center;
     justify-content: center;
     margin-right: 20px;
+}
+.total-div-number{
+    font-size: 32px;
+    font-weight: 600;
 }
