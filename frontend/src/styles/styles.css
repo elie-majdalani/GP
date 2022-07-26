@@ -312,6 +312,9 @@ main{
     font-weight: 600;
     padding-left: 10%;
 }
+.wallet-body-header-title-wrapper{
+width: 100%;
+}
 .wallet-body-content-compare{
     margin: 0px 10px;
 }
