@@ -706,14 +706,32 @@ main {
 
 }
 
-#table, th, td {
+#table,
+th,
+td {
     border: 1px solid #b8b6b6;
     border-collapse: collapse;
 }
 
-.charts-selection{
+/* charts */
+.charts-selection {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 30px;
+}
+
+.charts-page-body-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.charts-section-1{
+    width: 25%;
+}
+
+.charts-section-2{
+    width: 65%;
 }
