@@ -319,9 +319,11 @@ app.post("/withdraw", async (req, res) => {
       //Tron network coins
     } else {
       //get coin info
-      const { coin, amount, recipient } = req.body
+      let { coin, amount, recipient } = req.body
+      //convert to integer
+      amount = parseInt(amount)
       //prepare transaction
-      const payload = { sender: '', type: '', recipient, amount }
+      const body = { sender: '', type: '', recipient, amount }
       try {
         let walletData
         //get the wallet address
@@ -329,49 +331,48 @@ app.post("/withdraw", async (req, res) => {
           //check if user has enough USDT
           const wallet = await axios.get(`https://pretixe.com/v1/wallets?api=${process.env.PRETIXE_API_KEY}&type=usdt_trc20`);
           walletData = wallet.data.data[0]
-          payload.sender = walletData.address
-          payload.type = 'usdt_trc20'
+          body.sender = process.env.TRX_WALLET
+          body.type = 'usdt_trc20'
         }
         if (coin === "TRX") {
           //check if user has enough TRX
           const wallet = await axios.get(`https://pretixe.com/v1/wallets?api=${process.env.PRETIXE_API_KEY}&type=trx`);
           walletData = wallet.data.data[0]
-          payload.sender = walletData.address
-          payload.type = 'trx'
+          body.sender = process.env.TRX_WALLET
+          body.type = 'trx'
         }
         //return if not enough funds
         if (walletData.usd_value < amount)
           return res.status(400).json({ error: 'Insufficient funds' })
         try {
           //send transaction
-          const withdraw = await axios.post(`https://pretixe.com/v1/pay?api=${process.env.PRETIXE_API_KEY}`, {
-            body: payload,
-          })
+          const withdraw = await axios.post(`https://pretixe.com/v1/pay?api=${process.env.PRETIXE_API_KEY}`,
+            body
+          )
           //save the transaction
-          if (withdraw.success) {
-            const query = new URLSearchParams({
-              apikey: process.env.CRYPT_API,
-              prices: '1'
-            }).toString();
-            const respond = await axios.get(`https://pro-api.cryptapi.io/${payload.type}/info/?${query}`)
+          if (withdraw.data.success) {
+            const query = new URLSearchParams({ prices: '1', apikey: process.env.CRYPT_API }).toString()
+            const respond = await axios.get(`https://pro-api.cryptapi.io/${body.type}/info/?${query}`)
             //deduct the amount from the user's wallet
+            const deductedAmount = amount / respond.data.prices.USD
             if (coin === "TRX") {
-              user.wallet.trx.balance = user.wallet.trx.balance - amount * respond.data.prices.USD
+              user.wallet.trx.balance = user.wallet.trx.balance - deductedAmount
+            } else if (coin === "USDT") {
+              user.wallet.usdt.balance = user.wallet.usdt.balance - deductedAmount
             }
-            else if (coin === "USDT") {
-              user.wallet.usdt.balance = user.wallet.usdt.balance - amount * respond.data.prices.USD
-            }
+            user.save()
             //save the transaction
-            await new Transaction({
-              user_id: _id,
-              email: email,
+            const transaction = await Transaction.create({
+              user_id: user._id,
+              email: user.email,
               amount: amount,
               type: 0,
               status: 2,
               currency: coin,
-            }).save()
+              trx_id: withdraw.data.id,
+            })
 
-            return { success: true }
+            return res.status(200).json({ success: 'True' })
           }
           return res.status(400).json({ error: 'Transaction failed' })
         } catch (error) {
@@ -433,7 +434,6 @@ app.post("/callback", async (req, res) => {
         return Promise.reject({ code: ERROR.UserNotFound, message: 'USER_NOT_FOUND' })
       }
       //add info to database
-      const total = fiat_amount
       if (coin.toUpperCase() === 'TRX') {
         user.wallet.trx.balance += value_coin
       }
@@ -463,5 +463,3 @@ app.post("/callback", async (req, res) => {
     res.status(500).json(e)
   }
 })
-
-
