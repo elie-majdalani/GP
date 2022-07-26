@@ -402,3 +402,7 @@ background-image: url(../assets/shutdown.png);
   width: 48px;
   border: none;
 }
+.wallet-body-header{
+    display: flex;
+    justify-content: space-between;
+}
