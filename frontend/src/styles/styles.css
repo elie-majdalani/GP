@@ -374,3 +374,15 @@
     flex-direction: row;
     flex-wrap: nowrap;
 }
+.user-info{
+    margin-top: 20px;
+}
+#user-name{
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.user-info hr{
+    margin-top: 55px;
+}
