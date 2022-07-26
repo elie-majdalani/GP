@@ -99,42 +99,44 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                         <span className="total-div-number">{totalRevenue - totalExpense} $</span>
                     </div>
                 </div>
-                <div className="table-div">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Discription</th>
-                                <th>Amount</th>
-                                <th>Type</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tableData.map(item => {
-                                const date = item.createdAt
-                                const defaultDate = new Date(date.split('T'))
-                                if (defaultDate.getFullYear() < oldest.getFullYear()) {
-                                    setOldest(defaultDate)
-                                }
+                <div className="table-div-wrapper">
+                    <div className="table-div">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Discription</th>
+                                    <th>Amount</th>
+                                    <th>Type</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {tableData.map(item => {
+                                    const date = item.createdAt
+                                    const defaultDate = new Date(date.split('T'))
+                                    if (defaultDate.getFullYear() < oldest.getFullYear()) {
+                                        setOldest(defaultDate)
+                                    }
 
-                                if (defaultDate.getFullYear() === parseInt(chartYear) && defaultDate.getMonth() + 1 === parseInt(month)) {
-                                    return (
-                                        <tr key={item._id}>
-                                            <td>{item.name}</td>
-                                            <td>{item.category}</td>
-                                            <td>{item.discription}</td>
-                                            <td>{item.amount}</td>
-                                            <td>{item.type ? 'Revenue' : 'Expense'}</td>
-                                            <td>{defaultDate.getDate() + "-" + parseInt(defaultDate.getMonth() + 1) + "-" + defaultDate.getFullYear()}</td>
-                                        </tr>
-                                    )
+                                    if (defaultDate.getFullYear() === parseInt(chartYear) && defaultDate.getMonth() + 1 === parseInt(month)) {
+                                        return (
+                                            <tr key={item._id}>
+                                                <td>{item.name}</td>
+                                                <td>{item.category}</td>
+                                                <td>{item.discription}</td>
+                                                <td>{item.amount}</td>
+                                                <td>{item.type ? 'Revenue' : 'Expense'}</td>
+                                                <td>{defaultDate.getDate() + "-" + parseInt(defaultDate.getMonth() + 1) + "-" + defaultDate.getFullYear()}</td>
+                                            </tr>
+                                        )
+                                    }
                                 }
-                            }
-                            )}
-                        </tbody>
-                    </table>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
