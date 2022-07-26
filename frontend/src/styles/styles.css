@@ -1,4 +1,7 @@
 /* home page */
+body{
+    font-family: 'Roboto', sans-serif;
+}
 .hero-home-div{
     display: flex;
     justify-content: space-between;
