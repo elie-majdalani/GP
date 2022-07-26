@@ -76,14 +76,16 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                         </div>
                     </div>
                 </div>
-                <div className="total-revenue-div">
-                    <h1>Total Revenue: {totalRevenue}</h1>
-                </div>
-                <div className="total-expense-div">
-                    <h1>Total Expense: {totalExpense}</h1>
-                </div>
-                <div className="total-profit-div">
-                    <h1>Total Profit: {totalRevenue - totalExpense}</h1>
+                <div className="expences-body-content-section-2">
+                    <div className="total-revenue-div">
+                        <h1>Total Revenue: {totalRevenue}</h1>
+                    </div>
+                    <div className="total-expense-div">
+                        <h1>Total Expense: {totalExpense}</h1>
+                    </div>
+                    <div className="total-profit-div">
+                        <h1>Total Profit: {totalRevenue - totalExpense}</h1>
+                    </div>
                 </div>
                 <div className="table-div">
                     <table>
