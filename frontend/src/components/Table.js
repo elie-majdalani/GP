@@ -48,26 +48,34 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                 <UserInfo />
             </div>
             <div className="expences-body-content">
-                <div className="Inputs-modal-btn-div">
-                    <button onClick={() => setShow(true)}>Input</button>
-                    <Modal onClose={() => setShow(false)} show={show} setAdd={setAdd} />
+                <div className="expences-body-content-section-1">
+                    <div className="Inputs-modal-btn-div">
+                        <button onClick={() => setShow(true)}>Input</button>
+                        <Modal onClose={() => setShow(false)} show={show} setAdd={setAdd} />
+                    </div>
+                    <div className="date-selection-div">
+                        <div className="date-selection-div-year">
+                            <select value={chartYear} onChange={(e) => { setChartYear(e.target.value) }}>
+                                {Array.from(Array(new Date().getFullYear() - oldest.getFullYear() + 1).keys()).map(item => {
+                                    return (
+                                        <option key={item} value={item + oldest.getFullYear()}>{item + oldest.getFullYear()}</option>
+                                    )
+                                }
+                                )}
+                            </select>
+                        </div>
+                        <div className="date-selection-div-month">
+                            <select value={month} onChange={(e) => { setMonth(e.target.value) }}>
+                                {Array.from(Array(12).keys()).map(item => {
+                                    return (
+                                        <option key={item} value={item + 1}>{months[item]}</option>
+                                    )
+                                }
+                                )}
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <select value={chartYear} onChange={(e) => { setChartYear(e.target.value) }}>
-                    {Array.from(Array(new Date().getFullYear() - oldest.getFullYear() + 1).keys()).map(item => {
-                        return (
-                            <option key={item} value={item + oldest.getFullYear()}>{item + oldest.getFullYear()}</option>
-                        )
-                    }
-                    )}
-                </select>
-                <select value={month} onChange={(e) => { setMonth(e.target.value) }}>
-                    {Array.from(Array(12).keys()).map(item => {
-                        return (
-                            <option key={item} value={item + 1}>{months[item]}</option>
-                        )
-                    }
-                    )}
-                </select>
                 <div className="total-revenue-div">
                     <h1>Total Revenue: {totalRevenue}</h1>
                 </div>
