@@ -193,7 +193,6 @@ main{
     background-color: black;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
-    /* max-width: 15%; */
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -261,7 +260,8 @@ main{
 
 /* layout section */
 .layout{
-    width: 15%;
+    width: 17%;
+
 }
 .main-wrapper-div{
     display: flex;
