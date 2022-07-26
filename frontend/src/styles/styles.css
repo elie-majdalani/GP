@@ -384,8 +384,12 @@ width: 100%;
     flex-direction: row;
     flex-wrap: nowrap;
 }
+
 .user-info{
     margin-top: 20px;
+}
+.expences-body-header .user-info{
+    width:20%;
 }
 #user-name{
     font-size: 20px;
@@ -410,6 +414,7 @@ background-image: url(../assets/shutdown.png);
   border: none;
 }
 
+.expences-body-header,
 .wallet-body-header{
     display: flex;
     justify-content: space-between;

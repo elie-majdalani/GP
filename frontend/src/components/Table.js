@@ -3,7 +3,7 @@ import { Modal } from "../components/Modal";
 export const Table = ({ totalRevenue, totalExpense, data, show, setShow,setAdd}) => {
     return (
         <div>
-            <div className="wallet-body-header">
+            <div className="expences-body-header">
                 <div className="wallet-body-header-title-wrapper">
                     <div className="wallet-body-header-title">
                         <h1>Expences & Revenue</h1>
