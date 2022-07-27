@@ -34,7 +34,7 @@ export const Home = () => {
                 <img id="wallet" src={wallet} alt='wallet' />
                 <span id="home-right-tile">Crypto Wallet</span>
                 <div className='home-right-subtitle'>
-                    <span id="home-right-subtitle">Crypto wallet access for your <span id="home-right-subtitle-coin"> coins </span> and financial databade in one place</span>
+                    <span id="home-right-subtitle">Crypto wallet access for your <span id="home-right-subtitle-coin">&nbsp;coins&nbsp;</span> and financial databade in one place</span>
                 </div>
             </div>
         </div>
