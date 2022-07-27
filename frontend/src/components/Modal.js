@@ -13,13 +13,9 @@ export const Modal = (props) => {
     >
       <div className="modal" onClick={props.onClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          
-          <div className="modal-header">
-            <h4 className="modal-title">Add Record</h4>
-          </div>
 
-          <div className="modal-body"><AddRecord setAdd={props.setAdd} onClose={props.onClose}/></div>
-          
+          <div className="modal-body"><AddRecord setAdd={props.setAdd} onClose={props.onClose} /></div>
+
           <div className="modal-footer">
             <button onClick={props.onClose} className="button">
               Close

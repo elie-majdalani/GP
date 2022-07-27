@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAppContext } from './userContext';
 import axios from "axios";
 
-export const AddRecord = ({onClose,setAdd}) => {
+export const AddRecord = ({ onClose, setAdd }) => {
     const appdata = useAppContext();
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
@@ -18,7 +18,7 @@ export const AddRecord = ({onClose,setAdd}) => {
             name,
             category,
             discription,
-            amount: parseInt(amount),   
+            amount: parseInt(amount),
             type
         }
         await axios.post("http://127.0.0.1:4001/addRecord", body)
@@ -27,6 +27,9 @@ export const AddRecord = ({onClose,setAdd}) => {
 
     return (
         <div className="add-record-modal-contents-div">
+            <div className="add-record-modal-header-div">
+                <h1>Add Record</h1>
+            </div>
             <input type="text" placeholder="name" onChange={(e) => { setName(e.target.value) }} />
             <input type="text" placeholder="category" onChange={(e) => { setCategory(e.target.value) }} />
             <input type="text" placeholder="discription" onChange={(e) => { setDiscription(e.target.value) }} />
@@ -35,7 +38,7 @@ export const AddRecord = ({onClose,setAdd}) => {
                 <option value="true">Revenue</option>
                 <option value="false">Expense</option>
             </select>
-            <button  id="main-btn" onClick={()=>{handleSubmit();onClose()}}>Add</button>
+            <button id="main-btn" onClick={() => { handleSubmit(); onClose() }}>Add</button>
 
         </div>
     )
