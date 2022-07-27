@@ -46,16 +46,19 @@ export const Wallet = ({ db }) => {
                             <div className="wallet-body-content-calculation-div">
                                 <div className="wallet-body-content-usd">
                                     <span>Withdraw value in USD</span>
+                                    {coin === 'ETH' ?
                                     <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
+                                    :<input type="number" value={walletAmount} onChange={(e) => {setWalletAmount(e.currentTarget.value)}} />}
                                 </div>
                                 <div className="wallet-body-content-compare">
                                     <img id="compare" src={compare} alt='compare' />
                                 </div>
                                 <div className="wallet-body-content-coin">
                                     <span>Withdraw value in {coin}</span>
-                                    <input type="number" value={walletAmount} onChange={(e) => {
-                                        setWalletAmount(e.currentTarget.value)
-                                    }} />
+                                    {coin === 'TRX' || coin === 'USDT' ?
+                                    <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount / appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount / appdata.rate[coin]).toFixed(5)} />
+                                    :<input type="number" value={walletAmount} onChange={(e) => {setWalletAmount(e.currentTarget.value)}} />
+                                }
                                 </div>
                             </div>
                             <div className="wallet-body-content-address">
