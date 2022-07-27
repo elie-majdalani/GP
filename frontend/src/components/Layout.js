@@ -5,7 +5,7 @@ import UserChannel from "../components/UserChannel";
 import { useState } from 'react';
 
 export const Layout = ({ children }) => {
-    const [isMessages, setIsMessages] = useState(true);
+    const [isMessages, setIsMessages] = useState(false);
     const db = firebase.firestore();
     const appdata = useAppContext();
     return (
