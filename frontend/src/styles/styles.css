@@ -738,3 +738,7 @@ td {
 .charts-section-2{
     width: 65%;
 }
+
+.modal.enter-done{
+    backdrop-filter: blur(20px);
+}
