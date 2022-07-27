@@ -768,3 +768,13 @@ td {
 .chat li{
     list-style-type: none;
 }
+
+.chat-users li button{
+    border: none;
+    background-color: #EBEBEB;
+    width: 200px;
+    height: 52px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
