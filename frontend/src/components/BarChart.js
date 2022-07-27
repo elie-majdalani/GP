@@ -31,12 +31,12 @@ const BarChart = ({months,monthsExpense,monthsRevenue}) => {
             {
                 label: 'Expenses',
                 data: monthsExpense,
-                backgroundColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgb(255, 0, 0)',
             },
             {
                 label: 'Revenue',
-                data: monthsRevenue ,
-                backgroundColor: 'rgb(75, 192, 192)',
+                data: monthsRevenue,
+                backgroundColor: 'rgb(0, 56, 255)',
             },
         ],
     };
