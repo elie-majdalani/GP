@@ -83,17 +83,17 @@ export const Wallet = ({ db }) => {
                         <div className="wallet-sidenav-content">
                             <div className="wallet-sidenav-coin">
                                 <button onClick={() => setCoin("ETH")}>Etherium</button>
-                                <span>{appdata.user && appdata.user.wallet.eth && appdata.user.wallet.eth.balance}</span>
+                                <span>{appdata.user && appdata.user.wallet.eth && Number.parseFloat(appdata.user.wallet.eth.balance).toFixed(5)}</span>
                             </div>
 
                             <div className="wallet-sidenav-coin">
                                 <button onClick={() => setCoin("TRX")}>TRX</button>
-                                <span>{appdata.user && appdata.user.wallet.trx && appdata.user.wallet.trx.balance}</span>
+                                <span>{appdata.user && appdata.user.wallet.trx && Number.parseFloat(appdata.user.wallet.trx.balance).toFixed(5)}</span>
                             </div>
 
                             <div className="wallet-sidenav-coin">
                                 <button onClick={() => setCoin("USDT")}>USDT</button>
-                                <span>{appdata.user && appdata.user.wallet.usdt && appdata.user.wallet.usdt.balance}</span>
+                                <span>{appdata.user && appdata.user.wallet.usdt && Number.parseFloat(appdata.user.wallet.usdt.balance).toFixed(1)}</span>
                             </div>
                         </div>
                     </div>
@@ -145,17 +145,17 @@ export const Wallet = ({ db }) => {
                         <div className="wallet-sidenav-content">
                             <div className="wallet-sidenav-coin">
                                 <button onClick={() => setCoin("ETH")}>Etherium</button>
-                                <span>{appdata.user && appdata.user.wallet.eth && appdata.user.wallet.eth.balance}</span>
+                                <span>{appdata.user && appdata.user.wallet.eth && Number.parseFloat(appdata.user.wallet.eth.balance).toFixed(5)}</span>
                             </div>
 
                             <div className="wallet-sidenav-coin">
                                 <button onClick={() => setCoin("TRX")}>TRX</button>
-                                <span>{appdata.user && appdata.user.wallet.trx && appdata.user.wallet.trx.balance}</span>
+                                <span>{appdata.user && appdata.user.wallet.trx && Number.parseFloat(appdata.user.wallet.trx.balance).toFixed(5)}</span>
                             </div>
 
                             <div className="wallet-sidenav-coin">
                                 <button onClick={() => setCoin("USDT")}>USDT</button>
-                                <span>{appdata.user && appdata.user.wallet.usdt && appdata.user.wallet.usdt.balance}</span>
+                                <span>{appdata.user && appdata.user.wallet.usdt && Number.parseFloat(appdata.user.wallet.usdt.balance).toFixed(1)}</span>
                             </div>
                         </div>
                     </div>
