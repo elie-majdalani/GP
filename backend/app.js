@@ -327,7 +327,7 @@ app.post("/withdraw", async (req, res) => {
         emailto: user.email,
       });
       //add the transaction to the user
-      user.wallet.eth.balance = user.wallet.eth.balance - parseInt(req.body.amount);
+      user.wallet.eth.balance = user.wallet.eth.balance - parseFloat(req.body.amount);
       await user.save();
       return res.status(200).json(newTransaction);
 
@@ -337,7 +337,7 @@ app.post("/withdraw", async (req, res) => {
       //get coin info
       let { coin, amount, recipient } = req.body
       //convert to integer
-      amount = parseInt(amount)
+      amount = parseFloat(amount)
       //prepare transaction
       const body = { sender: '', type: '', recipient, amount }
       try {
@@ -459,13 +459,13 @@ app.get("/callback", async (req, res) => {
       }
       //add info to database
       if (coin.toUpperCase() === 'TRX') {
-        user.wallet.trx.balance = user.wallet.trx.balance + parseInt(value_coin)
+        user.wallet.trx.balance = user.wallet.trx.balance + parseFloat(value_coin)
       }
       else if (coin.toUpperCase() === 'USDT') {
-        user.wallet.usdt.balance = user.wallet.usdt.balance + parseInt(value_coin)
+        user.wallet.usdt.balance = user.wallet.usdt.balance + parseFloat(value_coin)
       }
       else if (coin.toUpperCase() === 'ETH') {
-        user.wallet.eth.balance = user.wallet.eth.balance + parseInt(value_coin)
+        user.wallet.eth.balance = user.wallet.eth.balance + parseFloat(value_coin)
       }
       //save user
       await user.save()
