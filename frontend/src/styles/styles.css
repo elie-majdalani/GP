@@ -779,6 +779,11 @@ td {
     margin-bottom: 20px;
 }
 
+.chat-users li button:hover{
+    background-color: #CBAC08;
+    color: #000000;
+}
+
 #support-side-nav-hr{
    margin-top: 15px;
     margin-bottom: 35px;
