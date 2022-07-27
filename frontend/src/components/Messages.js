@@ -14,17 +14,15 @@ const Message = ({
             <div className='user'>
                 <div className='text-wrapper'>
                     <div className='text-only'>
-                        <div className='text-title'>
-                            {displayName ? <p>{displayName}</p> : null}
-                        </div>
                         <p id="text">{text}</p>
                     </div>
-
-                    {createdAt?.seconds ? (
-                        <span>
-                            {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
-                        </span>
-                    ) : null}
+                    <div className='text-date'>
+                        {createdAt?.seconds ? (
+                            <span>
+                                {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
+                            </span>
+                        ) : null}
+                    </div>
                 </div>
             </div>
         );
@@ -34,17 +32,15 @@ const Message = ({
             <div className='other'>
                 <div className='text-wrapper'>
                     <div className='text-only'>
-                        <div className='text-title'>
-                            {displayName ? <p>{displayName}</p> : null}
-                        </div>
                         <p id="text">{text}</p>
                     </div>
-
-                    {createdAt?.seconds ? (
-                        <span>
-                            {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
-                        </span>
-                    ) : null}
+                    <div className='text-date'>
+                        {createdAt?.seconds ? (
+                            <span>
+                                {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
+                            </span>
+                        ) : null}
+                    </div>
                 </div>
             </div>
         );

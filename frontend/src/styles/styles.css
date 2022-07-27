@@ -844,4 +844,54 @@ td {
     overflow: auto;
     max-height: 70vh;
     width: 95%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.support-chat-body ul li .other{
+    background-color: #EBEBEB;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 65%;
+}
+
+.support-chat-body ul li .user{
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    width: 95%;
+}
+
+.support-chat-body ul li .other .text-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.support-chat-body ul li .user .text-wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.support-chat-body ul li .user .text-wrapper .text-date{
+    display: flex;
+    align-items: center;
+    min-width: 20%;
+}
+
+.support-chat-body ul li .other .text-wrapper .text-date{
+    min-width: 20%;
+}
+
+.support-chat-body ul li .text-wrapper .text-date{
+    font-size: 12px;
+    color: #a8a7a7;
 }
