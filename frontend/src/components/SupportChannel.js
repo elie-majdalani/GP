@@ -45,6 +45,16 @@ const SupportChannel = ({ db, currentEmail, user }) => {
     }
     return (
         <div className="support-chat">
+            <div className="wallet-body-header">
+                <div className="wallet-body-header-title-wrapper">
+                    <div className="wallet-body-header-title">
+                        <h1>Wallet</h1>
+                    </div>
+                    <div className="wallet-body-header-hr">
+                        <hr />
+                    </div>
+                </div>
+            </div>
             <ul>
                 {messages.map(message => (
                     <li key={message.id}>
