@@ -55,17 +55,21 @@ const SupportChannel = ({ db, currentEmail, user }) => {
                     </div>
                 </div>
             </div>
-            <ul>
-                {messages.map(message => (
-                    <li key={message.id}>
-                        <Messages {...message} />
-                    </li>
-                ))}
-            </ul>
-            <form onSubmit={handleOnSubmit}>
-                <input type="text" onChange={handleOnChange} value={newMessage} placeholder="Send Message" />
-                <button type="submit" disabled={!newMessage} onClick={handleOnSubmit}>Send</button>
-            </form>
+            <div className="support-chat-body">
+                <ul>
+                    {messages.map(message => (
+                        <li key={message.id}>
+                            <Messages {...message} />
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div className="support-chat-footer">
+                <form onSubmit={handleOnSubmit}>
+                    <input  id="support-chat-footer-input" type="text" onChange={handleOnChange} value={newMessage} placeholder="Send Message" />
+                    <button id="send-support-btn" type="submit" disabled={!newMessage} onClick={handleOnSubmit}></button>
+                </form>
+            </div>
         </div>
     )
 }

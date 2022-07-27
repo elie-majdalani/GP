@@ -154,6 +154,7 @@ main {
 }
 
 /* input fields section */
+.support-chat-footer input,
 .add-record-modal-contents-div input,
 .add-record-modal-contents-div select,
 .wallet-body-content input,
@@ -779,6 +780,10 @@ td {
     margin-bottom: 20px;
 }
 
+.chat-users ul{
+    margin: 0px 20px 0px -20px;
+}
+
 .chat-users li button:hover{
     background-color: #CBAC08;
     color: #000000;
@@ -805,5 +810,32 @@ td {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 100%;
+    width: 100%;
+}
+
+.support-chat-footer{
+    bottom: 0;
+    position: fixed;
+    width: 70%;
+}
+
+#send-support-btn{
+    background-image: url(../assets/sent.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: #ffffff;
+    height: 48px;
+    width: 48px;
+    border: none;
+    margin-left: 50px;
+}
+
+#support-chat-footer-input{
+    width: 100%;
+}
+.support-chat-footer form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
 }
