@@ -32,27 +32,34 @@ const Support = ({ db = null }) => {
     return (
         <div className='chat'>
             <div className='chat-users'>
-                <ul>
-                    <div id="sidenav-header">
-                        <div id="sidenav-header-logo">
-                            <img id='logo' src={logo} alt='logo' />
+                {/* <div className='chat-users-ul-div'> */}
+                    <ul>
+                        <div id="sidenav-header">
+                            <div id="sidenav-header-logo">
+                                <img id='logo' src={logo} alt='logo' />
+                            </div>
                         </div>
-                    </div>
-                    <div className='sidenav-hr'>
-                        <hr className="sidenav-divider" id="support-side-nav-hr"></hr>
-                    </div>
+                        <div className='sidenav-hr'>
+                            <hr className="sidenav-divider" id="support-side-nav-hr"></hr>
+                        </div>
 
-                    {/* adding emails buttons to the sorted chat */}
-                    {emails.map(email => {
-                        if (!email)
-                            return null;
-                        else
-                            return (<li key={email}>
-                                        <button onClick={(e) => setCurrentEmail(e.target.value)} value={email}>{email}</button>
-                                    </li>)
-                    })}
-                </ul>
+                        {/* adding emails buttons to the sorted chat */}
+                        {emails.map(email => {
+                            if (!email)
+                                return null;
+                            else
+                                return (<li key={email}>
+                                            <button onClick={(e) => setCurrentEmail(e.target.value)} value={email}>{email}</button>
+                                        </li>)
+                        })}
+                    </ul>
+                {/* </div> */}
             </div>
+
+            <div className='sidenav-seperator-hr'>
+                    <hr className="sidenav-divider"></hr>
+            </div>
+
             {/* Getting messages of the selected email */}
             <SupportChannel user={appdata.user} db={db} currentEmail={currentEmail} />
         </div>
