@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SupportChannel from '../components/SupportChannel';
 import { useAppContext } from '../components/userContext';
+import logo from '../assets/logo.png';
 
 const Support = ({ db = null }) => {
     const appdata = useAppContext();
@@ -32,6 +33,15 @@ const Support = ({ db = null }) => {
         <div className='chat'>
             <div className='chat-users'>
                 <ul>
+                    <div id="sidenav-header">
+                        <div id="sidenav-header-logo">
+                            <img id='logo' src={logo} alt='logo' />
+                        </div>
+                    </div>
+                    <div className='sidenav-hr'>
+                        <hr className="sidenav-divider" id="support-side-nav-hr"></hr>
+                    </div>
+
                     {/* adding emails buttons to the sorted chat */}
                     {emails.map(email => {
                         if (!email)
