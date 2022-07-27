@@ -26,7 +26,7 @@ export const AddRecord = ({onClose,setAdd}) => {
     }
 
     return (
-        <div>
+        <div className="add-record-modal-contents-div">
             <input type="text" placeholder="name" onChange={(e) => { setName(e.target.value) }} />
             <input type="text" placeholder="category" onChange={(e) => { setCategory(e.target.value) }} />
             <input type="text" placeholder="discription" onChange={(e) => { setDiscription(e.target.value) }} />
@@ -35,7 +35,7 @@ export const AddRecord = ({onClose,setAdd}) => {
                 <option value="true">Revenue</option>
                 <option value="false">Expense</option>
             </select>
-            <button onClick={()=>{handleSubmit();onClose()}}>Add</button>
+            <button  id="main-btn" onClick={()=>{handleSubmit();onClose()}}>Add</button>
 
         </div>
     )
