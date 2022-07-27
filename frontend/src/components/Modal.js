@@ -15,9 +15,6 @@ export const Modal = (props) => {
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
 
           <div className="modal-body">
-            <button onClick={props.onClose} className="button">
-              Close
-            </button>
             <AddRecord setAdd={props.setAdd} onClose={props.onClose} />
           </div>
 
