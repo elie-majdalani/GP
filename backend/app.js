@@ -20,7 +20,6 @@ admin.initializeApp({
   databaseURL: "https://gp-project-420b5-default-rtdb.firebaseio.com"
 });
 const db = admin.firestore();
-console.log(admin)
 const app = express();
 app.use(cors(corsOptions), express.json());
 app.use(express.json());
