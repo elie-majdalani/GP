@@ -9,29 +9,43 @@ const Message = ({
     photoURL = '',
 }) => {
     const appdata = useAppContext();
-    if(email === appdata.user.email){
-    return (
-        <div className='user'>
-            {displayName ? <p>{displayName}</p> : null}
-            {createdAt?.seconds ? (
-                <span>
-                    {formatRelative(new Date(createdAt.seconds*1000), new Date())}
-                </span>
-            ) : null}
-            <p>{text}</p>
-        </div>
-    );
-            }
-    else{
+    if (email === appdata.user.email) {
+        return (
+            <div className='user'>
+                <div className='text-wrapper'>
+                    <div className='text-only'>
+                        <div className='text-title'>
+                            {displayName ? <p>{displayName}</p> : null}
+                        </div>
+                        <p id="text">{text}</p>
+                    </div>
+
+                    {createdAt?.seconds ? (
+                        <span>
+                            {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
+                        </span>
+                    ) : null}
+                </div>
+            </div>
+        );
+    }
+    else {
         return (
             <div className='other'>
-                {displayName ? <p>{displayName}</p> : null}
-                {createdAt?.seconds ? (
-                    <span>
-                        {formatRelative(new Date(createdAt.seconds*1000), new Date())}
-                    </span>
-                ) : null}
-                <p>{text}</p>
+                <div className='text-wrapper'>
+                    <div className='text-only'>
+                        <div className='text-title'>
+                            {displayName ? <p>{displayName}</p> : null}
+                        </div>
+                        <p id="text">{text}</p>
+                    </div>
+
+                    {createdAt?.seconds ? (
+                        <span>
+                            {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
+                        </span>
+                    ) : null}
+                </div>
             </div>
         );
     }
