@@ -153,6 +153,8 @@ main {
 }
 
 /* input fields section */
+.add-record-modal-contents-div input,
+.add-record-modal-contents-div select,
 .wallet-body-content input,
 .signup-section-div input,
 .login-section-div input {
@@ -739,6 +741,11 @@ td {
     width: 65%;
 }
 
+/* modal inputs */
 .modal.enter-done{
     backdrop-filter: blur(20px);
+}
+
+.add-record-modal-contents-div select{
+    text-align: center;
 }
