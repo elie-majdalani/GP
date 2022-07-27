@@ -29,7 +29,7 @@ const Support = ({ db = null }) => {
     }, [db, emails]);
 
     return (
-        <div className='Chat'>
+        <div className='chat'>
             <div className='chat-users'>
                 <ul>
                     {/* adding emails buttons to the sorted chat */}
@@ -38,8 +38,8 @@ const Support = ({ db = null }) => {
                             return null;
                         else
                             return (<li key={email}>
-                                <button onClick={(e) => setCurrentEmail(e.target.value)} value={email}>{email}</button>
-                            </li>)
+                                        <button onClick={(e) => setCurrentEmail(e.target.value)} value={email}>{email}</button>
+                                    </li>)
                     })}
                 </ul>
             </div>

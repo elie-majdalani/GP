@@ -756,3 +756,15 @@ td {
 .charts-section-2{
     width: 65%;
 }
+
+/* support page */
+.chat{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.chat li{
+    list-style-type: none;
+}
