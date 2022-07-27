@@ -41,15 +41,16 @@ export const Charts = ({ setYear, oldest, year, totalRevenue, totalExpense, char
                             }
                             )}
                         </select>
+
+                        {/* <select className="selections" value={month} onChange={(e) => { setMonth(e.target.value) }}>
+                            {Array.from(Array(12).keys()).map(item => {
+                                return (
+                                    <option key={item} value={item + 1}>{months[item]}</option>
+                                )
+                            }
+                            )}
+                        </select> */}
                     </div>
-                    {/* <select className="selections" value={month} onChange={(e) => { setMonth(e.target.value) }}>
-                    {Array.from(Array(12).keys()).map(item => {
-                        return (
-                            <option key={item} value={item + 1}>{months[item]}</option>
-                        )
-                    }
-                    )}
-                </select> */}
                     <div className="barchart-wrapper">
                         <BarChart months={months} monthsExpense={monthsExpense} monthsRevenue={monthsRevenue} />
                     </div>
