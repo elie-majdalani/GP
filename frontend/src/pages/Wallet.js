@@ -21,6 +21,9 @@ export const Wallet = ({ db }) => {
             }
         }
     }, [appdata.user, appdata])
+    const handleWithdraw = async () => {
+        await Withdraw(coin, walletAmount, appdata)
+    }
     return (
         <div>
             {!isDeposit ?
@@ -60,7 +63,7 @@ export const Wallet = ({ db }) => {
                                 <input id="reciving-address" type="text" placeholder="Wallet Address" onChange={(e) => { setWalletAddress(e) }} />
                             </div>
 
-                            <button className="main-btn" id="withdraw-btn" onClick={async () => await Withdraw(coin, walletAmount)}>Withdraw</button>
+                            <button className="main-btn" id="withdraw-btn" onClick={() => handleWithdraw()}>Withdraw</button>
                         </div>
                     </div>
 
