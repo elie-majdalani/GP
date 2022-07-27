@@ -23,7 +23,7 @@ const Support = ({ db = null }) => {
                             emails.push(message.email)
                         }
                     })
-                    setCurrentEmail(emails[1])
+
                 })
             return emailDB;
         }
@@ -45,7 +45,7 @@ const Support = ({ db = null }) => {
 
                         {/* adding emails buttons to the sorted chat */}
                         {emails.map(email => {
-                            if (!email)
+                            if (!email || email === appdata.user.email || email === "support")
                                 return null;
                             else
                                 return (<li key={email}>
