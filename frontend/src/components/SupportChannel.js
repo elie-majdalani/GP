@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import firebase from './firebase';
 import Messages from './Messages';
+import { useAppContext } from '../components/userContext';
 
 const SupportChannel = ({ db, currentEmail, user }) => {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
     const { email, displayName, photoURL } = user;
+    const appdata = useAppContext();
     useEffect(() => {
         if (db) {
             //get messages for sepecific user
@@ -48,7 +50,8 @@ const SupportChannel = ({ db, currentEmail, user }) => {
             <div className="wallet-body-header">
                 <div className="wallet-body-header-title-wrapper">
                     <div className="wallet-body-header-title">
-                        <h1>Wallet</h1>
+                        <h1>{currentEmail}</h1>
+                        {appdata.user && (<button id="logout-btn" onClick={() => { appdata.setUser(); localStorage.clear(); window.location.href = '/login' }}/>)}
                     </div>
                     <div className="wallet-body-header-hr">
                         <hr />
