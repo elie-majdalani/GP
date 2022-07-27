@@ -14,13 +14,13 @@ export const Modal = (props) => {
       <div className="modal" onClick={props.onClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
 
-          <div className="modal-body"><AddRecord setAdd={props.setAdd} onClose={props.onClose} /></div>
-
-          <div className="modal-footer">
+          <div className="modal-body">
             <button onClick={props.onClose} className="button">
               Close
             </button>
+            <AddRecord setAdd={props.setAdd} onClose={props.onClose} />
           </div>
+
         </div>
       </div>
     </CSSTransition>,
