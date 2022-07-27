@@ -542,6 +542,7 @@ main {
 
 .add-record-modal-contents-div select{
     text-align: center;
+    font-weight: 600;
 }
 
 /* selections */
