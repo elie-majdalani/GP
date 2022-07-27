@@ -45,16 +45,26 @@ const UserChannel = ({ db = null }) => {
     }
 
     return (
-        <div className='Chat'>
-            <ul>
-                {messages.map(message => (
-                    <li key={message.id}>
-                        <Messages {...message} />
-                    </li>
-                ))}
-            </ul>
-            <input type="text" onChange={handleOnChange} value={newMessage} placeholder="Send Message" />
-            <button type="submit" disabled={!newMessage} onClick={handleOnSubmit}>Send</button>
+        <div className='user-chat'>
+            <div className="user-chat-header">
+                <spam>Support</spam>
+                <hr/>
+            </div>
+            <div className="user-chat-wrapper-div">
+                <div className="user-chat-body">
+                    <ul>
+                        {messages.map(message => (
+                            <li key={message.id}>
+                                <Messages {...message} />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="user-chat-input-div">
+                    <input type="text" onChange={handleOnChange} value={newMessage} placeholder="Send Message" />
+                    <button type="submit" disabled={!newMessage} onClick={handleOnSubmit}>Send</button>
+                </div>
+            </div>
         </div>
     )
 }
