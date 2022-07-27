@@ -1,7 +1,5 @@
-import { useAppContext } from '../components/userContext';
 import axios from 'axios';
-export const Withdraw = async (coin,amount) => {
-    const appdata = useAppContext()
+export const Withdraw = async (coin,amount,appdata) => {
     const body= {
         coin,
         email: appdata.user.email,
