@@ -116,7 +116,7 @@ export const Wallet = ({ db }) => {
                                 <span id="withdraw-warning">Ensure the network you choose to deposit matches the withdrawal network, or assets may be lost</span>
                             </div>
                             <div className="wallet-body-content-genrate">
-                                <span>Deposit USDT (TRC20)</span>
+                                <span>Deposit {coin} </span>
                                 <button className="main-btn" onClick={async () => {
                                     const body = {
                                         coin,
