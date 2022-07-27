@@ -746,6 +746,13 @@ td {
     backdrop-filter: blur(20px);
 }
 
+.add-record-modal-contents-div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
 .add-record-modal-contents-div select{
     text-align: center;
 }
