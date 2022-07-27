@@ -916,10 +916,11 @@ td {
     margin-left: 80vw;
     right: 25px;
     border-radius: 10px;
-    overflow: auto;
+    overflow-y: scroll;
     border: 2px solid #000000;
     display: flex;
     justify-content: center;
+    
 }
 
 .user-chat-body{
@@ -962,4 +963,66 @@ td {
     background-color: white;
     width: 28%;
     border-radius: 10px;
+}
+
+.user-chat-main-div{
+    overflow: hidden;
+}
+
+.user-chat-body ul li{
+    list-style-type: none;
+}
+
+.user-chat-body ul li .other .text-wrapper .text-date,
+.user-chat-body ul li .other .text-wrapper .text-date{
+    display: flex;
+    align-items: center;
+    min-width: 20%;
+}
+
+.user-chat-body ul li .user .text-wrapper .text-date,
+.user-chat-body ul li .other .text-wrapper .text-date{
+    min-width: 20%;
+}
+
+
+.user-chat-body ul li .other .text-wrapper .text-date,
+.user-chat-body ul li .user .text-wrapper .text-date{
+    font-size: 12px;
+    color: #a8a7a7;
+}
+
+.user-chat-body .text-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 75%;
+}
+
+.user-chat-body .other  .text-wrapper{
+    background-color: #ebebeb;
+    border-radius: 10px;
+    margin : 10px 0px;
+    padding: 0px 10px
+}
+
+.user-chat-body .user{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.user-chat-body .user .text-date,
+.user-chat-body .other .text-date{
+    width: 25%;
+}
+
+.user-chat-body .text-only{
+    padding-right: 5px;
+}
+
+.user-chat-bod ul{
+    display: flex;
+    flex-direction: column-reverse;
 }
