@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAppContext } from '../components/userContext';
 import { Table } from "../components/Table";
 import { Charts } from "../components/Charts";
-
+import configData from "../config.json";
 
 
 export const Records = () => {
@@ -34,7 +34,7 @@ export const Records = () => {
                 token: localStorage.getItem('token'),
                 email: appdata.user.email,
             }
-            const result = await axios.post("http://127.0.0.1:4001/getRecords", body)
+            const result = await axios.post(`${configData.SERVER_URL}/getRecords`, body)
             const records = result.data
             setData(records);
             setTotalExpense(0)

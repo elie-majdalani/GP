@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppContext } from './userContext';
 import axios from "axios";
+import configData from "../config.json";
 
 export const AddRecord = ({ onClose, setAdd }) => {
     const appdata = useAppContext();
@@ -21,7 +22,7 @@ export const AddRecord = ({ onClose, setAdd }) => {
             amount: parseInt(amount),
             type
         }
-        await axios.post("http://127.0.0.1:4001/addRecord", body)
+        await axios.post(`${configData.SERVER_URL}/addRecord`, body)
         setAdd(true)
     }
 

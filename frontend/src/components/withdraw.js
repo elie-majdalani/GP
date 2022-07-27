@@ -1,4 +1,5 @@
 import axios from 'axios';
+import configData from '../config.json';
 export const Withdraw = async (coin,amount,appdata) => {
     const body= {
         coin,
@@ -6,6 +7,6 @@ export const Withdraw = async (coin,amount,appdata) => {
         amount: amount,
         token: appdata.user.token
     }
-    const res = await axios.post("http://127.0.0.1:4001/withdraw",body)
+    const res = await axios.post(`${configData.SERVER_URL}/withdraw`,body)
     return res.data
 }

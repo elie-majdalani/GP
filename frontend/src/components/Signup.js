@@ -10,7 +10,7 @@ export const register = async (displayName, email, password, confirmPassword) =>
             email,
             password,
         }
-        const res = await axios.post("http://127.0.0.1:4001/register", body);
+        const res = await axios.post(`${configData.SERVER_URL}/register`, body);
         if (res.status === 200) {
             window.location.href = '/login';
         }
