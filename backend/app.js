@@ -242,7 +242,7 @@ app.post("/deposit", auth, async (req, res) => {
     // replace variables according to the requested wallet
     const query = new URLSearchParams({
       apikey: process.env.CRYPT_API,
-      callback: `http://127.0.0.1:4001/callback?email=${req.user.email}&type=${req.body.type}`,
+      callback: `${process.env.SERVER_URL}/callback?email=${req.user.email}&type=${req.body.type}`,
       address: address,
       multi_token: '1',
     }).toString();
