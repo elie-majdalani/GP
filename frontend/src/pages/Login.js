@@ -33,8 +33,6 @@ export const Login = () => {
                     appdata.setUser(userData);
                 }}>Login</button>
                 <span>Don't have an account? <a href="/signup">Signup</a></span>
-                <span id="or"> OR </span>
-                <button className="button" onClick={signInWithGoogle}><i className="fab fa-google"></i>Sign in with google</button>
             </div>
         </div>
     )

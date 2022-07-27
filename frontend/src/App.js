@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { SignUp } from './pages/Signup';
 import { Login } from './pages/Login';
 import firebase from './components/firebase';
-// import { checkGmail, saveGmail } from './components/gmail';
 import { Home } from './pages/Home';
 import { Records } from './pages/Records';
 import { Wallet } from './pages/Wallet';
@@ -12,16 +11,6 @@ import { useAppContext } from './components/userContext';
 import Support from './pages/Support';
 
 function App() {
-  // useEffect(() => {
-  //   firebase.auth().onAuthStateChanged(user => {
-  //     setUser(user);
-  //     if (user) {
-  //       const valid = checkGmail();
-  //       if (valid) {
-  //         saveGmail();
-  //     }
-  //   }
-  // })}, [])
   const appdata = useAppContext();
   const db = firebase.firestore();
   return (
