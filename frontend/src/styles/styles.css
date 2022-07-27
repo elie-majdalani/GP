@@ -788,3 +788,11 @@ td {
    margin-top: 15px;
     margin-bottom: 35px;
 }
+
+.sidenav-seperator-hr{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 100vh;
+}
