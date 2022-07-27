@@ -11,7 +11,16 @@ const corsOptions = {
   origin: '*',
   credentials: true,
 }
+var admin = require("firebase-admin");
 
+var serviceAccount = require("./config.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://gp-project-420b5-default-rtdb.firebaseio.com"
+});
+const db = admin.firestore();
+console.log(admin)
 const app = express();
 app.use(cors(corsOptions), express.json());
 app.use(express.json());
@@ -289,7 +298,7 @@ app.post("/withdraw", async (req, res) => {
         to: user.wallet.eth.address,
         value: web3.utils.toHex(web3.utils.toWei(req.body.amount, 'ether')),
         gasPrice: web3.utils.toHex(gasPrice),
-        gasLimit: web3.utils.toHex(gasPrisceLimit),
+        gasLimit: web3.utils.toHex(gasPriceLimit),
         nonce: web3.utils.toHex(nonce)
       }
       //intialize transaction
@@ -301,7 +310,7 @@ app.post("/withdraw", async (req, res) => {
       //send signed transaction to the network
       let receipt = await web3.eth.sendSignedTransaction('0x' + serializedTransaction.toString('hex'))
       //get the transaction hash
-      const hasedId = receipt.transactionHash;
+      const hashedId = receipt.transactionHash;
       //save the transaction
       const newTransaction = await Transaction.create({
         user_id: user._id,
@@ -309,10 +318,17 @@ app.post("/withdraw", async (req, res) => {
         amount: req.body.amount,
         currency: "ETH",
         type: 0,
-        trx_id: hasedId,
+        trx_id: hashedId,
       })
+      db.collection('messages').add({
+        text: `You have successfully withdrawn ${req.body.amount} ${req.body.coin}`,
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        displayName: user.displayName,
+        emailto: user.email,
+      });
       //add the transaction to the user
-      user.wallet.eth.balance = user.wallet.eth.balance - req.body.amount;
+      user.wallet.eth.balance = user.wallet.eth.balance - parseInt(req.body.amount);
+      await user.save();
       return res.status(200).json(newTransaction);
 
 
@@ -350,9 +366,12 @@ app.post("/withdraw", async (req, res) => {
             body
           )
           //save the transaction
-          if (withdraw.data.success) {
-            const query = new URLSearchParams({ prices: '1', apikey: process.env.CRYPT_API }).toString()
-            const respond = await axios.get(`https://pro-api.cryptapi.io/${body.type}/info/?${query}`)
+          if (withdraw.success) {
+            const query = new URLSearchParams({
+              apikey: process.env.CRYPT_API,
+              prices: '1'
+            }).toString();
+            const respond = await axios.get(`https://pro-api.cryptapi.io/${payload.type}/info/?${query}`)
             //deduct the amount from the user's wallet
             const deductedAmount = amount / respond.data.prices.USD
             if (coin === "TRX") {
@@ -369,8 +388,14 @@ app.post("/withdraw", async (req, res) => {
               type: 0,
               status: 2,
               currency: coin,
-              trx_id: withdraw.data.id,
+              trx_id: "123",
             })
+            db.collection('messages').add({
+              text: `You have successfully withdrawn ${deductedAmount} ${coin}`,
+              createdAt: admin.firestore.FieldValue.serverTimestamp(),
+              displayName: user.displayName,
+              emailto: user.email,
+            });
 
             return res.status(200).json({ success: 'True' })
           }
@@ -390,14 +415,13 @@ app.post("/withdraw", async (req, res) => {
 })
 
 //wait for deposite
-app.post("/callback", async (req, res) => {
+app.get("/callback", async (req, res) => {
   try {
     //get query
     const payload = req.query
     //get the transaction info with converted prices
-    const { address_in, secret, txid_in, value_coin, value_forwarded_coin, pending, email, type } = payload
-    //get coin
-    let { coin } = payload
+    const { address_in, secret, txid_in, value_coin, value_forwarded_coin, pending, email, coin } = payload
+    const user = await User.findOne({ email })
     let transaction
     //check if transaction is pending
     if (pending == 1) {
@@ -421,13 +445,13 @@ app.post("/callback", async (req, res) => {
     try {
       //check if transaction already exists
       const checkTx = await Transaction.findOne({
-        foreign_trx_id: txid_in,
-        status: ETransactionState.Confirmed,
+        trx_id: txid_in,
+        status: 2,
       }).lean()
       // return if transaction already exists
       if (checkTx) return
       //get user
-      const user = await User.findOne(req.body.email)
+
       //check if user exists
       if (!user) {
         this.Logger.error(`User ${userID} not found using ${coin.toUpperCase()} address: ${address_in}`)
@@ -435,26 +459,34 @@ app.post("/callback", async (req, res) => {
       }
       //add info to database
       if (coin.toUpperCase() === 'TRX') {
-        user.wallet.trx.balance += value_coin
+        user.wallet.trx.balance = user.wallet.trx.balance + parseInt(value_coin)
       }
       else if (coin.toUpperCase() === 'USDT') {
-        user.wallet.trx.balance += value_coin
+        user.wallet.usdt.balance = user.wallet.usdt.balance + parseInt(value_coin)
       }
       else if (coin.toUpperCase() === 'ETH') {
-        user.wallet.trx.balance += value_coin
+        user.wallet.eth.balance = user.wallet.eth.balance + parseInt(value_coin)
       }
       //save user
       await user.save()
       //add transaction to database
       await new Transaction({
-        to_user_id: user._id,
+        user_id: user._id,
         currency: coin.toUpperCase(),
-        type: ETransactionType.Deposit,
-        status: ETransactionState.Confirmed,
-        amount: amount,
-        foreign_trx_id: txid_in,
+        email: user.email,
+        type: 1,
+        status: 2,
+        amount: value_coin,
+        trx_id: txid_in,
       }).save()
 
+      db.collection('messages').add({
+        text: `You have successfully deposit ${value_coin} ${coin}`,
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        displayName: user.displayName,
+        emailto: user.email,
+      });
+      res.status(200).send('*ok*')
     } catch (e) {
       this.Logger.error(e)
       return Promise.reject({ code: ERROR.InternalError, message: 'INTERNAL_ERROR' })
