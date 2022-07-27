@@ -99,8 +99,9 @@ main {
 
 .home-buttons-div a {
     text-decoration: none;
+    color: black;
 }
-
+#home-right-subtitle-coin,
 .home-buttons-div #signup-btn {
     color: #CBAC08;
 }
