@@ -903,3 +903,24 @@ td {
     font-size: 12px;
     color: #a8a7a7;
 }
+
+.user-chat{
+    position: absolute;
+    max-width: 30%;
+    max-height: 60%;
+    min-height: 60%;
+    min-width: 30%;
+    background-color: #ffffff;
+    bottom: 25px;
+    margin-left: 80vw;
+    right: 25px;
+    border-radius: 10px;
+    overflow: auto;
+    border: 2px solid #000000;
+}
+
+.user-chat-body{
+    box-sizing: border-box;
+    max-width: 100%;
+    max-height: 100%;
+}
