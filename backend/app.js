@@ -288,13 +288,13 @@ app.post("/withdraw", async (req, res) => {
       //get gas limit
       const gasPriceLimit = await web3.eth.estimateGas({
         nonce,
-        to: user.wallet.eth.address,
+        to: req.body.recipient,
         value: web3.utils.toHex(web3.utils.toWei(req.body.amount, 'ether')),
       })
       //send transaction info
       let rawTransaction = {
         from: process.env.ETH_WALLET,
-        to: user.wallet.eth.address,
+        to: req.body.recipient,
         value: web3.utils.toHex(web3.utils.toWei(req.body.amount, 'ether')),
         gasPrice: web3.utils.toHex(gasPrice),
         gasLimit: web3.utils.toHex(gasPriceLimit),
@@ -365,12 +365,12 @@ app.post("/withdraw", async (req, res) => {
             body
           )
           //save the transaction
-          if (withdraw.success) {
+          if (withdraw.data.success) {
             const query = new URLSearchParams({
               apikey: process.env.CRYPT_API,
               prices: '1'
             }).toString();
-            const respond = await axios.get(`https://pro-api.cryptapi.io/${payload.type}/info/?${query}`)
+            const respond = await axios.get(`https://pro-api.cryptapi.io/${body.type}/info/?${query}`)
             //deduct the amount from the user's wallet
             const deductedAmount = amount / respond.data.prices.USD
             if (coin === "TRX") {
@@ -387,7 +387,7 @@ app.post("/withdraw", async (req, res) => {
               type: 0,
               status: 2,
               currency: coin,
-              trx_id: "123",
+              trx_id: withdraw.data.id,
             })
             db.collection('messages').add({
               text: `You have successfully withdrawn ${deductedAmount} ${coin}`,
