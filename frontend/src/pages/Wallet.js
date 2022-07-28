@@ -4,6 +4,9 @@ import { useAppContext } from '../components/userContext';
 import { useState, useEffect } from "react";
 import compare from '../assets/compare.png';
 import { UserInfo } from "../components/userInfo";
+import usdt from '../assets/usdt.png';
+import eth from '../assets/eth.png';
+import trx from '../assets/trx.png';
 
 export const Wallet = ({ db }) => {
     const appdata = useAppContext();
@@ -47,8 +50,8 @@ export const Wallet = ({ db }) => {
                                 <div className="wallet-body-content-usd">
                                     <span>Withdraw value in USD</span>
                                     {coin === 'ETH' ?
-                                    <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
-                                    :<input type="number" value={walletAmount} onChange={(e) => {setWalletAmount(e.currentTarget.value)}} />}
+                                        <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount * appdata.rate[coin]).toFixed(5)} />
+                                        : <input type="number" value={walletAmount} onChange={(e) => { setWalletAmount(e.currentTarget.value) }} />}
                                 </div>
                                 <div className="wallet-body-content-compare">
                                     <img id="compare" src={compare} alt='compare' />
@@ -56,9 +59,9 @@ export const Wallet = ({ db }) => {
                                 <div className="wallet-body-content-coin">
                                     <span>Withdraw value in {coin}</span>
                                     {coin === 'TRX' || coin === 'USDT' ?
-                                    <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount / appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount / appdata.rate[coin]).toFixed(5)} />
-                                    :<input type="number" value={walletAmount} onChange={(e) => {setWalletAmount(e.currentTarget.value)}} />
-                                }
+                                        <input type="number" disabled={true} value={appdata.rate && coin === 'USDT' ? Number.parseFloat(walletAmount / appdata.rate[coin]).toFixed(1) : appdata.rate && Number.parseFloat(walletAmount / appdata.rate[coin]).toFixed(5)} />
+                                        : <input type="number" value={walletAmount} onChange={(e) => { setWalletAmount(e.currentTarget.value) }} />
+                                    }
                                 </div>
                             </div>
                             <div className="wallet-body-content-address">
@@ -82,16 +85,19 @@ export const Wallet = ({ db }) => {
                         </div>
                         <div className="wallet-sidenav-content">
                             <div className="wallet-sidenav-coin">
+                                <img id="eth" src={eth} alt='eth' />
                                 <button onClick={() => setCoin("ETH")}>Etherium</button>
                                 <span>{appdata.user && appdata.user.wallet.eth && Number.parseFloat(appdata.user.wallet.eth.balance).toFixed(5)}</span>
                             </div>
 
                             <div className="wallet-sidenav-coin">
+                                <img id="trx" src={trx} alt='trx' />
                                 <button onClick={() => setCoin("TRX")}>TRX</button>
                                 <span>{appdata.user && appdata.user.wallet.trx && Number.parseFloat(appdata.user.wallet.trx.balance).toFixed(5)}</span>
                             </div>
 
                             <div className="wallet-sidenav-coin">
+                                <img id="usdt" src={usdt} alt='usdt' />
                                 <button onClick={() => setCoin("USDT")}>USDT</button>
                                 <span>{appdata.user && appdata.user.wallet.usdt && Number.parseFloat(appdata.user.wallet.usdt.balance).toFixed(1)}</span>
                             </div>
@@ -144,16 +150,19 @@ export const Wallet = ({ db }) => {
                         </div>
                         <div className="wallet-sidenav-content">
                             <div className="wallet-sidenav-coin">
+                                <img id="eth" src={eth} alt='eth' />
                                 <button onClick={() => setCoin("ETH")}>Etherium</button>
                                 <span>{appdata.user && appdata.user.wallet.eth && Number.parseFloat(appdata.user.wallet.eth.balance).toFixed(5)}</span>
                             </div>
 
                             <div className="wallet-sidenav-coin">
+                                <img id="trx" src={trx} alt='trx' />
                                 <button onClick={() => setCoin("TRX")}>TRX</button>
                                 <span>{appdata.user && appdata.user.wallet.trx && Number.parseFloat(appdata.user.wallet.trx.balance).toFixed(5)}</span>
                             </div>
 
                             <div className="wallet-sidenav-coin">
+                                <img id="usdt" src={usdt} alt='usdt' />
                                 <button onClick={() => setCoin("USDT")}>USDT</button>
                                 <span>{appdata.user && appdata.user.wallet.usdt && Number.parseFloat(appdata.user.wallet.usdt.balance).toFixed(1)}</span>
                             </div>

@@ -390,11 +390,6 @@ main {
 }
 
 /* wallet sidenav */
-.wallet-sidenav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .wallet-sidenav-header {
     width: 100%;
@@ -411,6 +406,7 @@ main {
     flex-direction: column;
     align-items: center;
     max-width: 20%;
+    min-width: fit-content;
 }
 
 .wallet-sidenav-coin button {
@@ -429,7 +425,8 @@ main {
 }
 
 .wallet-sidenav-coin span {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .wallet-sidenav-coin {
@@ -467,7 +464,7 @@ main {
 }
 
 .user-info hr {
-    margin-top: 27px;
+    margin-top: 38px;
 }
 
 #logout-btn {
