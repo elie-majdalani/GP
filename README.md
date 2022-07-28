@@ -72,15 +72,15 @@ Here's a brief high-level overview of the tech stack GP uses:
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repo.
    ```sh
    git clone https://github.com/elie-majdalani/GP.git
    ```
-2. Install NPM packages on the frontend and backend
+2. Install NPM packages on the frontend and backend.
    ```sh
    npm install
    ```
-3. Create in your "/frontend/src" section create `config.json` and add your backend server url
+3. Create in your "/frontend/src" section create `config.json` and add your backend server url.
    ```js
    { "SERVER_URL":"http://127.0.0.1:4001" }
    ```
@@ -93,35 +93,35 @@ Here's a brief high-level overview of the tech stack GP uses:
       * In the 'Service accounts' section generate a new private key in nodejs (will generate a .json file)
 
 
-5. Create in your "/frontend/src/components" section `config.json` and add your generated firebase configuration
+5. Create in your "/frontend/src/components" section `config.json` and add your generated firebase configuration.
    ```js
-   {
-    "apiKey": 
-    "authDomain": 
-    "projectId": 
-    "storageBucket": 
-    "messagingSenderId": 
-    "appId":
-   }
+    {
+      "apiKey": 
+      "authDomain": 
+      "projectId": 
+      "storageBucket": 
+      "messagingSenderId": 
+      "appId":
+    }
    ```
 
-6. In your "/backend" section add your generated .json file as `config.json`
+6. In your "/backend" section add your generated .json file as `config.json`.
    ```js
-   {
-  "type": 
-  "project_id": 
-  "private_key_id": 
-  "private_key":
-  "client_email": 
-  "client_id":
-  "auth_uri": 
-  "token_uri": 
-  "auth_provider_x509_cert_url":
-  "client_x509_cert_url":
-  }
+    {
+    "type": 
+    "project_id": 
+    "private_key_id": 
+    "private_key":
+    "client_email": 
+    "client_id":
+    "auth_uri": 
+    "token_uri": 
+    "auth_provider_x509_cert_url":
+    "client_x509_cert_url":
+    }
    ```
 
-7. Create your Atlas cluster with collection "gp"
+7. Create your Atlas cluster with collection "gp".
 
 8. Create your .env file in your "/backend" section and add:
     ```js
