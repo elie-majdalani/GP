@@ -26,13 +26,25 @@
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that i didn't use any styling library or theme, all from scratch and using pure css modules
 
-<!-- | Landing  | Home/Search  |
+| Landing  | Home  |
 | -----------------| -----|
-| <img src="./readme/Landing_Page.jpg"/> | <img src="./readme/Home.jpg"/> |
+| <img src="./readme/figma/landing.jpg"/> | <img src="./readme/figma/home.jpg"/> |
 
-| Artists results  | Artist's Albums  |
+| Login  | Signup  |
 | -----------------| -----|
-| <img src="./readme/Landing_Page.jpg"/> | <img src="./readme/Home.jpg"/> | -->
+| <img src="./readme/figma/login.jpg"/> | <img src="./readme/figma/signup.jpg"/> |
+
+| Charts  | input  |
+| -----------------| -----|
+| <img src="./readme/figma/charts.jpg"/> | <img src="./readme/figma/input.jpg"/> |
+
+| Withdraw  | Deposit  |
+| -----------------| -----|
+| <img src="./readme/figma/withdraw.jpg"/> | <img src="./readme/figma/deposit.jpg"/> |
+
+| Chat  | Support  |
+| -----------------| -----|
+| <img src="./readme/figma/chat.jpg"/> | <img src="./readme/figma/support.jpg"/> |
 
 
 <br><br>
