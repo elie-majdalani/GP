@@ -72,6 +72,76 @@ Here's a brief high-level overview of the tech stack GP uses:
 
 ### Installation
 
+1. Clone the repo
+   ```sh
+   git clone https://github.com/elie-majdalani/GP.git
+   ```
+2. Install NPM packages on the frontend and backend
+   ```sh
+   npm install
+   ```
+3. Create in your "/frontend/src" section create `config.json` and add your backend server url
+   ```js
+   { "SERVER_URL":"http://127.0.0.1:4001" }
+   ```
+4. Creat firebase project
+    - Create a new project in firebase
+    - Enable the firestore database
+      * Set in Rules "allow read, write : if true;"
+    - From Project Settings 
+      * In the 'General' section clickon 'Add app' and then get your firebase configuration
+      * In the 'Service accounts' section generate a new private key in nodejs (will generate a .json file)
 
+
+5. Create in your "/frontend/src/components" section `config.json` and add your generated firebase configuration
+   ```js
+   {
+    "apiKey": 
+    "authDomain": 
+    "projectId": 
+    "storageBucket": 
+    "messagingSenderId": 
+    "appId":
+   }
+   ```
+
+6. In your "/backend" section add your generated .json file as `config.json`
+   ```js
+   {
+  "type": 
+  "project_id": 
+  "private_key_id": 
+  "private_key":
+  "client_email": 
+  "client_id":
+  "auth_uri": 
+  "token_uri": 
+  "auth_provider_x509_cert_url":
+  "client_x509_cert_url":
+  }
+   ```
+
+7. Create your Atlas cluster with collection "gp"
+
+8. Create your .env file in your "/backend" section and add:
+    ```js
+    API_PORT= *your backend port here*
+
+    MONGO_URI= *your mongo connection string here from Atlas*
+
+    TOKEN_KEY= *JWT encryption key here*
+
+    CRYPT_API= *cryptAPI key here (taken from cryptAPI when you register)*
+
+    ETH_WALLET= *your eth wallet address here*
+
+    ETH_PRIVATE_KEY=  *your eth private key here*
+
+    PRETIXE_API_KEY= *Waxpeer key here (taken from Waxpeer support discord link: "https://discord.com/invite/Z4HzgSt" )*
+
+    TRX_WALLET= *your tron wallet address here*
+
+    SERVER_URL= *your backend server url here*
+    ```
 
 
