@@ -144,4 +144,10 @@ Here's a brief high-level overview of the tech stack GP uses:
     SERVER_URL= *your backend server url here*
     ```
 
+### Notes
 
+  - All coins Deposite are handled by cryptAPI.
+
+  - All ETH Withdraw is handled by Web3.
+
+  - TRX and USDT (trc20/usdt) (on the tron network) Withdraw are handled by Waxpeer.
