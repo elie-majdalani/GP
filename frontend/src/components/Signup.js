@@ -1,4 +1,5 @@
 import axios from "axios";
+import configData from "../config.json";
 export const register = async (displayName, email, password, confirmPassword) => {
     if (password !== confirmPassword) {
         alert('Passwords do not match');
