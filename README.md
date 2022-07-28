@@ -67,7 +67,24 @@ Here's a brief high-level overview of the tech stack GP uses:
 
 | Landing  | Home  |
 | -----------------| -----|
-| <img src="./readme/Landing_Page.jpg"/> | <img src="./readme/Home.jpg"/> |
+| <img src="./readme/project-images/landing.png"/> | <img src="./readme/project-images/home.png"/> |
+
+| Login  | Signup  |
+| -----------------| -----|
+| <img src="./readme/project-images/login.png"/> | <img src="./readme/project-images/signup.png"/> |
+
+| Charts  | input  |
+| -----------------| -----|
+| <img src="./readme/project-images/charts.png"/> | <img src="./readme/project-images/input.png"/> |
+
+| Withdraw  | Deposit  |
+| -----------------| -----|
+| <img src="./readme/project-images/withdraw.png"/> | <img src="./readme/project-images/deposit.png"/> |
+
+| Chat  | Support  |
+| -----------------| -----|
+| <img src="./readme/project-images/chat.png"/> | <img src="./readme/project-images/support.png"/> |
+
 
 
 <br><br>
@@ -160,6 +177,6 @@ Here's a brief high-level overview of the tech stack GP uses:
 
   - All coins Deposite are handled by cryptAPI.
 
-  - All ETH Withdraw is handled by Web3.
+  - All ETH Withdraw is handled by Web3 (hardcoded on test net can be changed by changing the network).
 
   - TRX and USDT (trc20/usdt) (on the tron network) Withdraw are handled by Waxpeer.
