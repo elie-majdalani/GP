@@ -106,7 +106,7 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                                 <tr>
                                     <th>Name</th>
                                     <th>Category</th>
-                                    <th>Discription</th>
+                                    <th>Description </th>
                                     <th>Amount</th>
                                     <th>Type</th>
                                     <th>Date</th>
