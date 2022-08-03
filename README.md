@@ -18,6 +18,14 @@
 >
 > GP uses graphs to visualize your financial data. It’s easy to see how your money is being used.
 
+### User Stories
+- As a user, I want to have a quick and easy way to track my finances.
+- As a user, I want to be able to easily add new records to my financial tracker.
+- As a user, I want to have a graph that shows my financial data over time.
+- As a user, I want to have a wallet close by where I can also track my crypto currencies.
+- As a user, I want to be able to easily add and or withdraw coins from my wallet.
+
+- As a support, I want to be able to easily keep track of my customers' complaints and concerns.
 
 <br><br>
 
