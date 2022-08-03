@@ -8,8 +8,7 @@ const BarChart = ({months,monthsExpense,monthsRevenue}) => {
     const options = {
         plugins: {
             title: {
-                display: true,
-                text: 'Chart.js Bar Chart - Stacked',
+                display: true,          
             },
         },
         responsive: true,
