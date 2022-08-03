@@ -125,7 +125,7 @@ export const Table = ({ data, show, setShow, setAdd }) => {
                                             <tr key={item._id}>
                                                 <td>{item.name}</td>
                                                 <td>{item.category}</td>
-                                                <td>{item.discription}</td>
+                                                <td>{item.description}</td>
                                                 <td>{item.amount}</td>
                                                 <td>{item.type ? 'Revenue' : 'Expense'}</td>
                                                 <td>{defaultDate.getDate() + "-" + parseInt(defaultDate.getMonth() + 1) + "-" + defaultDate.getFullYear()}</td>
