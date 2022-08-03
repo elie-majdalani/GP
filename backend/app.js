@@ -181,12 +181,12 @@ app.post("/gmailRegister", async (req, res) => {
 
 // add new expense record
 app.post("/addRecord", auth, (req, res) => {
-  const { email, name, category, discription, amount, type } = req.body;
+  const { email, name, category, description, amount, type } = req.body;
   const record = new Record({
     email,
     name,
     category,
-    discription,
+    description,
     amount,
     type,
   });
