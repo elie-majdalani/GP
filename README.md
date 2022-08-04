@@ -80,7 +80,7 @@ Here's a brief high-level overview of the tech stack GP uses:
 
 | Home  | Input  |
 | -----------------| -----|
-| <img src="./readme/project-gifs/table.gif"/> | <img src="./readme/project-gifs/table.gif"/> |
+| <img src="./readme/project-gifs/table.gif"/> | <img src="./readme/project-gifs/input.gif"/> |
 
 | Login  | Signup  |
 | -----------------| -----|
@@ -92,7 +92,7 @@ Here's a brief high-level overview of the tech stack GP uses:
 
 | Deposit 1  | Deopsite 2  | Deopsite 3  |
 | -----------------| -----|-----|
-| <img src="./readme/project-gifs/deposit.gif"/> | <img src="./readme/project-gifs/deposit-1.gif"/> || <img src="./readme/project-gifs/deposit-2.gif"/> |
+| <img src="./readme/project-gifs/deposit.gif"/> | <img src="./readme/project-gifs/deposit-1.gif"/> | <img src="./readme/project-gifs/deposit-2.gif"/> |
 
 | Withdraw  |
 | -----------------|
