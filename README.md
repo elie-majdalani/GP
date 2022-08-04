@@ -25,6 +25,7 @@
 - As a user, I want to have a wallet close by where I can also track my crypto currencies.
 - As a user, I want to be able to easily add and or withdraw coins from my wallet.
 
+
 - As a support, I want to be able to easily keep track of my customers' complaints and concerns.
 
 <br><br>
@@ -73,25 +74,33 @@ Here's a brief high-level overview of the tech stack GP uses:
 
 > Using the above mentioned tech stacks and the wireframes built with figma, the implementation of the app is shown as below, these are screenshots from the real app
 
-| Landing  | Home  |
+| Landing  |
+| -----------------|
+| <img src="./readme/project-images/landing.png"/> |
+
+| Home  | Input  |
 | -----------------| -----|
-| <img src="./readme/project-images/landing.png"/> | <img src="./readme/project-images/home.png"/> |
+| <img src="./readme/project-gifs/table.gif"/> | <img src="./readme/project-gifs/table.gif"/> |
 
 | Login  | Signup  |
 | -----------------| -----|
-| <img src="./readme/project-images/login.png"/> | <img src="./readme/project-images/signup.png"/> |
+| <img src="./readme/project-gifs/login.gif"/> | <img src="./readme/project-gifs/signup.gif"/> |
 
-| Charts  | input  |
+| Bar Chart  | Daughnut Chart  |
 | -----------------| -----|
-| <img src="./readme/project-images/charts.png"/> | <img src="./readme/project-images/input.png"/> |
+| <img src="./readme/project-gifs/barchart.gif"/> | <img src="./readme/project-gifs/doughnut-chart.gif"/> |
 
-| Withdraw  | Deposit  |
-| -----------------| -----|
-| <img src="./readme/project-images/withdraw.png"/> | <img src="./readme/project-images/deposit.png"/> |
+| Deposit 1  | Deopsite 2  | Deopsite 3  |
+| -----------------| -----|-----|
+| <img src="./readme/project-gifs/deposit.gif"/> | <img src="./readme/project-gifs/deposit-1.gif"/> || <img src="./readme/project-gifs/deposit-2.gif"/> |
 
-| Chat  | Support  |
-| -----------------| -----|
-| <img src="./readme/project-images/chat.png"/> | <img src="./readme/project-images/support.png"/> |
+| Withdraw  |
+| -----------------|
+| <img src="./readme/project-gifs/withdraw.gif"/> |
+
+| Support  | User Receive  | User Send  |
+| -----------------| -----|-----|
+| <img src="./readme/project-gifs/support-message-receive.gif"/> | <img src="./readme/project-gifs/user-message-receive.gif"/> | <img src="./readme/project-gifs/user-message-send.gif"/> |
 
 
 
