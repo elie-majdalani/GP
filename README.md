@@ -4,13 +4,14 @@
 
 > GP, also known as gold piece, is a website where the user can store his financial records and view them ordered in a table and charts. Alongside the finance keeping section is the crypto wallet section where the user can deposit and withdraw coins.  
 
+> **[PROJECT PHILOSOPHY](https://github.com/elie-majdalani/GP#project-philosophy) • [WIREFRAMES](https://github.com/elie-majdalani/GP#wireframes) • [TECH STACK](https://github.com/elie-majdalani/GP#tech-stack) • [IMPLEMENTATION](https://github.com/elie-majdalani/GP#implementation) • [HOW TO RUN?](https://github.com/elie-majdalani/GP#how-to-run)**
 
 </div>
 
 <br><br>
 
 
-<img src="./readme/title2.svg"/>
+<img id ="project-philosophy" src="./readme/title2.svg"/>
 
 > GP is an all-in-one platform for tracking your finances. It’s a simple, easy-to-use, and encompases all of the essential features of a personal finance app as well as a crypto wallet.
 > 
@@ -25,12 +26,12 @@
 - As a user, I want to have a wallet close by where I can also track my crypto currencies.
 - As a user, I want to be able to easily add and or withdraw coins from my wallet.
 
-
+### Support Stories
 - As a support, I want to be able to easily keep track of my customers' complaints and concerns.
 
 <br><br>
 
-<img src="./readme/title3.svg"/>
+<img id ="wireframes" src="./readme/title3.svg"/>
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that i didn't use any styling library or theme, all from scratch and using pure css modules
@@ -58,7 +59,7 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 <br><br>
 
-<img src="./readme/title4.svg"/>
+<img id="tech-stack" src="./readme/title4.svg"/>
 
 Here's a brief high-level overview of the tech stack GP uses:
 
@@ -70,7 +71,7 @@ Here's a brief high-level overview of the tech stack GP uses:
 
 
 <br><br>
-<img src="./readme/title5.svg"/>
+<img id="implementation" src="./readme/title5.svg"/>
 
 > Using the above mentioned tech stacks and the wireframes built with figma, the implementation of the app is shown as below, these are screenshots from the real app
 
@@ -105,7 +106,7 @@ Here's a brief high-level overview of the tech stack GP uses:
 
 
 <br><br>
-<img src="./readme/title6.svg"/>
+<img id="how-to-run" src="./readme/title6.svg"/>
 
 > To get a local copy up and running follow these simple example steps.
 
