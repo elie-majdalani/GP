@@ -1,7 +1,7 @@
 import { signInWithGoogle } from '../components/firebase';
 import { useState, useEffect } from 'react';
-import { login } from '../components/login';
-import { useAppContext } from '../components/userContext';
+import { login } from '../components/Login';
+import { useAppContext } from '../components/UserContext';
 import logo from '../assets/logo.png';
 export const Login = () => {
     const appdata = useAppContext()

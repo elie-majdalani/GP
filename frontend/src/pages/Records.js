@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useAppContext } from '../components/userContext';
+import { useAppContext } from '../components/UserContext';
 import { Table } from "../components/Table";
 import { Charts } from "../components/Charts";
 import configData from "../config.json";

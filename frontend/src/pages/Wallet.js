@@ -1,6 +1,6 @@
 import { Withdraw } from "../components/withdraw";
 import { Deposit } from "../components/deposit";
-import { useAppContext } from '../components/userContext';
+import { useAppContext } from '../components/UserContext';
 import { useState, useEffect } from "react";
 import compare from '../assets/compare.png';
 import { UserInfo } from "../components/userInfo";

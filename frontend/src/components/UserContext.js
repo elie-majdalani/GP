@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { User } from '../components/fetchUser'
+import { User } from './fetchUser'
 import axios from 'axios'
 const AppContext = createContext()
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAppContext } from '../components/userContext';
+import { useAppContext } from '../components/UserContext';
 import GP from '../assets/GP.png';
 import laptop from '../assets/laptop-v2.png';
 import notes from '../assets/Banknotes.png';

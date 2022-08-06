@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatRelative } from 'date-fns';
-import { useAppContext } from '../components/userContext';
+import { useAppContext } from '../components/UserContext';
 const Message = ({
     createdAt = null,
     text = '',

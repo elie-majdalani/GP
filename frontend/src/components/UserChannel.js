@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import firebase from './firebase';
 import Messages from './Messages';
-import { useAppContext } from './userContext';
+import { useAppContext } from './UserContext';
 
 const UserChannel = ({ db = null }) => {
     const appData = useAppContext();

@@ -1,4 +1,4 @@
-import { useAppContext } from '../components/userContext';
+import { useAppContext } from '../components/UserContext';
 import { SideNav } from './Sidenav';
 import firebase from './firebase';
 import UserChannel from "../components/UserChannel";

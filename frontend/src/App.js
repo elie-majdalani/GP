@@ -7,7 +7,7 @@ import firebase from './components/firebase';
 import { Home } from './pages/Home';
 import { Records } from './pages/Records';
 import { Wallet } from './pages/Wallet';
-import { useAppContext } from './components/userContext';
+import { useAppContext } from './components/UserContext';
 import Support from './pages/Support';
 
 function App() {

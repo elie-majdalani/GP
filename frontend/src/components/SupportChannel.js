@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import firebase from './firebase';
 import Messages from './Messages';
-import { useAppContext } from '../components/userContext';
+import { useAppContext } from '../components/UserContext';
 
 const SupportChannel = ({ db, currentEmail, user }) => {
     const [messages, setMessages] = useState([]);

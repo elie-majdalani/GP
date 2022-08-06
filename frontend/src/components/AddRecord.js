@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAppContext } from './userContext';
+import { useAppContext } from './UserContext';
 import axios from "axios";
 import configData from "../config.json";
 

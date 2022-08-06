@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import SupportChannel from '../components/SupportChannel';
-import { useAppContext } from '../components/userContext';
+import { useAppContext } from '../components/UserContext';
 import logo from '../assets/logo.png';
 
 const Support = ({ db = null }) => {

@@ -1,4 +1,4 @@
-import { useAppContext } from './userContext';
+import { useAppContext } from './UserContext';
 export const UserInfo = () => {
     const appdata = useAppContext();
     return (

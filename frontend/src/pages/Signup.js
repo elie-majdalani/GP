@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { register } from '../components/signup';
-import { useAppContext } from '../components/userContext';
+import { register } from '../components/Signup';
+import { useAppContext } from '../components/UserContext';
 import logo from '../assets/logo.png';
 
 export const SignUp = () => {
